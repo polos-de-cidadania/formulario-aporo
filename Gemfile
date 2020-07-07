@@ -19,6 +19,7 @@ gem 'webpacker', '~> 4.0'
 gem 'turbolinks', '~> 5'
 
 gem 'devise', '~> 4.7'
+gem 'font-awesome-sass', '~> 5.13.0'
 gem 'haml'
 gem 'haml-rails'
 

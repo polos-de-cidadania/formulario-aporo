@@ -1,0 +1,26 @@
+.field {
+  margin-bottom: $spacing-2;
+}
+
+.actions {
+  margin-top: $spacing-4;
+  margin-bottom: $spacing-3;
+}
+
+label {
+  @extend .text-label;
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: $spacing-1;
+  padding-right: 0;
+  overflow-x: scroll;
+  border-radius: $border-radius;
+  border: 1px solid $color-grey;
+
+  &:focus {
+    border: 1px solid $color-primary;
+  }
+}

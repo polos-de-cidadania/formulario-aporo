@@ -1,0 +1,36 @@
+a {
+  @extend .text-label;
+  color: $color-grey-darker;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline $color-primary-dark 2px;
+  }
+}
+
+button,
+[type="button"],
+[type="reset"],
+[type="submit"] {
+  @extend .text-label;
+  border: none;
+  border-radius: $border-radius;
+
+  &.primary {
+    background-color: $color-primary-darker;
+    color: $color-white;
+    width: 100%;
+    padding: $spacing-1 0;
+
+    &:hover {
+      background-color: $color-primary-dark;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+
+  &:active {
+    background-color: $color-primary;
+  }
+}

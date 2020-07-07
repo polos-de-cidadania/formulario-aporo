@@ -1,0 +1,52 @@
+.text-title {
+  font-family: $font-ubuntu;
+  font-weight: 700;
+  font-size: $font-size-larger;
+  line-height: $spacing-4;
+}
+
+.text-lead {
+  font-family: $font-ubuntu;
+  font-weight: normal;
+  font-size: $font-size-large;
+  line-height: 1.4;
+}
+
+.text-label {
+  font-family: $font-source;
+  font-weight: 600;
+  font-size: $font-size-base;
+  line-height: 1.5;
+}
+
+.text-body {
+  font-family: $font-source;
+  font-weight: normal;
+  font-size: $font-size-base;
+  line-height: 1.6;
+}
+
+html {
+  font-size: $font-size-base;
+  color: $color-grey-darker;
+}
+
+h1, h2, h3, h4, h5, h6,
+[type='color'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='email'],
+[type='month'],
+[type='number'],
+[type='password'],
+[type='search'],
+[type='tel'],
+[type='text'],
+[type='time'],
+[type='url'],
+[type='week'],
+input:not([type]),
+textarea {
+  @extend .text-body;
+}

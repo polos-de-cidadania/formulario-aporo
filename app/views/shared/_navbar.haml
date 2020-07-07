@@ -1,0 +1,5 @@
+%header
+	= image_tag "aporo-icon.png", class: 'icon'
+	%h1 Plataforma Áporo
+	- if user_signed_in?
+		= icon 'fas', 'bars'
