@@ -15,8 +15,9 @@ button,
   border-radius: $border-radius;
   padding: $spacing-1 0 $spacing-1 0;
   text-align: center;
-
+  
   &:hover {
+    text-decoration: none;
     cursor: pointer;
   }
 
@@ -51,7 +52,7 @@ a {
   color: $color-grey-darker;
   text-decoration: none;
 
-  &:hover:not(.button) {
+  &:hover {
     text-decoration: underline $color-primary-dark 2px;
 
     i {

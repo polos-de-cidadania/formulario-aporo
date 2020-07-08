@@ -2,7 +2,8 @@
   .summary
     %h2.text-lead= @user.name
     %sub= "Último login #{time_ago_in_words @user.last_sign_in_at} atrás"
-  %p= @user.email
+  .details
+    %p= @user.email
   .actions
     = link_to users_path do
       = icon 'fas', 'arrow-left'

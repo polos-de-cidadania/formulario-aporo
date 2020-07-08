@@ -1,0 +1,27 @@
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  &:not(:first-child) {
+    padding-left: $spacing-0;
+  }
+
+  &:not(:last-child) {
+    padding-right: $spacing-1;
+  }
+}
+
+th {
+  @extend .text-lead;
+  padding-bottom: $spacing-1;
+  border-bottom: 2px solid $color-grey-dark;
+}
+
+td {
+  @extend .text-body;
+  padding-top: $spacing-1;
+  padding-bottom: $spacing-1;
+  border-top: 1px solid $color-grey;
+}

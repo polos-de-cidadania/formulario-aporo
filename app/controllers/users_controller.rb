@@ -5,7 +5,6 @@ class UsersController < ApplicationController
 
   # GET /users
   def index
-    sign_out current_user
     @users = User.all
   end
 
