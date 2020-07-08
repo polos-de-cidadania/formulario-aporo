@@ -7,7 +7,7 @@ module ApplicationHelper
       content_for :title
     else
       # look up translation key based on controller path and .title
-      t("#{controller_path.tr('/', '.')}.#{action_name}.title", default: :site_name) ||
+      t("#{controller_path.tr('/', '.')}.title", default: :site_name) ||
         t('site_title')
     end
   end

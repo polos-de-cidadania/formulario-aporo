@@ -10,11 +10,5 @@
 		= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload'
 	%body
 		= render "shared/navbar"
-		- if flash[:notice]
-			%modal.flash
-				%p.notice= notice
-		- if flash[:alert]
-			%modal.flash
-				%p.alert= alert
 		%main
 			= yield

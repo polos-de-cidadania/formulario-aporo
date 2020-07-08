@@ -38,11 +38,8 @@ main {
   align-items: center;
 }
 
-modal.flash {
-  display: none;
-}
-
 @import "container";
 
 @import "navbar";
 @import "devise";
+@import "users";

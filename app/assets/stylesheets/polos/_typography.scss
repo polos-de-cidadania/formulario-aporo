@@ -32,6 +32,7 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6,
+p, sub, sup,
 [type='color'],
 [type='date'],
 [type='datetime'],
@@ -48,5 +49,6 @@ h1, h2, h3, h4, h5, h6,
 [type='week'],
 input:not([type]),
 textarea {
+  margin: 0;
   @extend .text-body;
 }

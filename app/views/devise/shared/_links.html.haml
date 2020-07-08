@@ -1,4 +1,4 @@
-#links
+.links
   - if controller_name != 'sessions'
     = link_to "Log in", new_session_path(resource_name)
   - if devise_mapping.recoverable? && controller_name != 'passwords' && controller_name != 'registrations'

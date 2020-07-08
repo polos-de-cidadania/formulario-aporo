@@ -5,7 +5,6 @@
       %ul
         - @user.errors.full_messages.each do |message|
           %li= message
-
   .field
     = f.label :name
     = f.text_field :name
@@ -16,4 +15,5 @@
     = f.label :password
     = f.text_field :password
   .actions
-    = f.submit 'Save'
+    = yield :links
+    = f.submit t('verbs.save'), class: 'primary'

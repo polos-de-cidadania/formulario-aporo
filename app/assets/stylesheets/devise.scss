@@ -1,15 +1,22 @@
-#cta {
-  text-align: center;
-  margin-bottom: $spacing-3;
-}
+#auth {
+  .title {
+    text-align: center;
+    margin-bottom: $spacing-3;
+  }
 
-button.primary {
-  margin-bottom: $spacing-3;
-}
+  .actions {
+    flex-direction: column;
+  }
 
-#links {
-  a {
-    display: block;
-    margin-bottom: $spacing-0;
+  .primary {
+    width: 100%;
+    margin-bottom: $spacing-3;
+  }
+
+  .links {
+    a {
+      display: block;
+      margin-bottom: $spacing-0;
+    }
   }
 }

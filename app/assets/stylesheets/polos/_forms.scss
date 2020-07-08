@@ -4,7 +4,17 @@
 
 .actions {
   margin-top: $spacing-4;
-  margin-bottom: $spacing-3;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  a.button,
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    width: 7rem;
+  }
 }
 
 label {
@@ -12,10 +22,24 @@ label {
   display: block;
 }
 
-input {
+[type='color'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='email'],
+[type='month'],
+[type='number'],
+[type='password'],
+[type='search'],
+[type='tel'],
+[type='text'],
+[type='time'],
+[type='url'],
+[type='week'],
+input:not([type]),
+textarea {
   width: 100%;
-  padding: $spacing-1;
-  padding-right: 0;
+  padding: $spacing-1 0 $spacing-1 $spacing-1;
   overflow-x: scroll;
   border-radius: $border-radius;
   border: 1px solid $color-grey;

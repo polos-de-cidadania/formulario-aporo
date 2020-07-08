@@ -1,0 +1,10 @@
+.main-container.elevated#user
+  .summary
+    %h2.text-lead= @user.name
+    %sub= "Último login #{time_ago_in_words @user.last_sign_in_at} atrás"
+  %p= @user.email
+  .actions
+    = link_to users_path do
+      = icon 'fas', 'arrow-left'
+    = link_to t("verbs.edit"), edit_user_path(@user), class: 'button primary'
+

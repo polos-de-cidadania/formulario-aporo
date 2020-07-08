@@ -1107,6 +1107,24 @@
       </library>
     </orderEntry>
     <orderEntry type="module-library">
+      <library name="rails-i18n (vbundled(6.0.0)) [path][gem]" type="rubylib">
+        <properties>
+          <option name="version" value="4" />
+        </properties>
+        <CLASSES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rails-i18n-6.0.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rails-i18n-6.0.0/rails" />
+        </CLASSES>
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rails-i18n-6.0.0/lib" />
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rails-i18n-6.0.0/rails" />
+        </SOURCES>
+        <excluded>
+          <root url="file://$MODULE_DIR$/vendor/bundle/ruby/2.6.0/gems/rails-i18n-6.0.0/rails" />
+        </excluded>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
       <library name="railties (vbundled(6.0.3.2)) [path][gem]" type="rubylib">
         <properties>
           <option name="version" value="4" />

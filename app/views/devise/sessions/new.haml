@@ -1,5 +1,5 @@
-.main-container.elevated-high
-  %h2.text-lead#cta Insira suas credenciais
+.main-container.elevated-high#auth
+  %h2.text-lead.title Insira suas credenciais
   = form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
     .field
       = f.label :email, 'E-mail'
@@ -9,4 +9,4 @@
       = f.password_field :password, autocomplete: 'current-password'
     .actions
       = f.submit 'Log in', class: 'primary'
-  = render 'devise/shared/links'
+      = render 'devise/shared/links'
