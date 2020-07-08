@@ -1,0 +1,23 @@
+#user {
+  .summary {
+    margin-bottom: $spacing-2;
+
+    sub {
+      top: 0;
+      color: $color-grey-dark;
+    }
+  }
+
+  p {
+    margin-bottom: $spacing-4;
+  }
+
+  .actions {
+    flex-direction: row;
+    justify-content: space-between;
+
+    a i {
+      font-size: $font-size-larger;
+    }
+  }
+}

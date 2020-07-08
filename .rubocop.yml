@@ -9,5 +9,16 @@
 #
 # See https://docs.rubocop.org/rubocop/configuration
 
-require:
-  - rubocop-rails
+require: rubocop-rails
+
+AllCops:
+  NewCops: enable
+  TargetRubyVersion: 2.6
+
+Metrics/MethodLength:
+  Exclude: ["db/**/*"]
+Metrics/AbcSize:
+  Exclude: ["db/**/*"]
+
+Style/Documentation:
+  Enabled: false

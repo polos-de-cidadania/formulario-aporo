@@ -1,0 +1,50 @@
+.field {
+  margin-bottom: $spacing-2;
+}
+
+.actions {
+  margin-top: $spacing-4;
+  width: 100%;
+  display: flex;
+  align-items: center;
+
+  a.button,
+  button,
+  [type="button"],
+  [type="reset"],
+  [type="submit"] {
+    width: 7rem;
+  }
+}
+
+label {
+  @extend .text-label;
+  display: block;
+}
+
+[type='color'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='email'],
+[type='month'],
+[type='number'],
+[type='password'],
+[type='search'],
+[type='tel'],
+[type='text'],
+[type='time'],
+[type='url'],
+[type='week'],
+input:not([type]),
+textarea {
+  width: 100%;
+  padding: $spacing-1 0 $spacing-1 $spacing-1;
+  overflow-x: scroll;
+  border-radius: $border-radius;
+  border: 1px solid $color-grey;
+
+  &:focus {
+    border: 1px solid $color-primary;
+  }
+}

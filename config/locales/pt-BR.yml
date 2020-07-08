@@ -1,0 +1,14 @@
+pt-BR:
+  site_name: "Aporo - Formulários"
+  verbs:
+    create: Criar
+    show: Visualizar
+    edit: Editar
+    save: Salvar
+  attributes:
+    name: Nome
+    email: E-mail
+    password: Senha
+    password_confirm: Confirmação de Senha
+  users:
+    title: Usuários - Áporo Formulários

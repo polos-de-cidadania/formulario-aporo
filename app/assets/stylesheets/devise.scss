@@ -1,0 +1,22 @@
+#auth {
+  .title {
+    text-align: center;
+    margin-bottom: $spacing-3;
+  }
+
+  .actions {
+    flex-direction: column;
+  }
+
+  .primary {
+    width: 100%;
+    margin-bottom: $spacing-3;
+  }
+
+  .links {
+    a {
+      display: block;
+      margin-bottom: $spacing-0;
+    }
+  }
+}

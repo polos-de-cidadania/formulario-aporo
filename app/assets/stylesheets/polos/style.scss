@@ -1,0 +1,45 @@
+$color-primary-light: hsl(34, 95%, 80%);
+$color-primary: hsl(34, 100%, 47%);
+$color-primary-dark: hsl(28, 100%, 46%);
+$color-primary-darker: hsl(24, 100%, 39%);
+
+$color-grey-light: hsl(0, 0%, 80%);
+$color-grey: hsl(0, 0%, 74%);
+$color-grey-dark: hsl(0, 5%, 40%);
+$color-grey-darker: hsl(0, 5%, 25%);
+
+$color-white: hsl(0, 0%, 100%);
+$color-white-dark: hsl(34, 5%, 80%);
+
+$font-ubuntu: "Ubuntu", sans-serif;
+$font-source: "Source Sans Pro", sans-serif;
+
+$size-base: 16px;
+
+$font-size-base: $size-base;
+$font-size-large: $size-base * 1.25;
+$font-size-larger: $font-size-large * 1.2;
+
+$spacing-0: $size-base / 4;
+$spacing-1: $size-base / 2;
+$spacing-2: $size-base;
+$spacing-3: $size-base * 1.5;
+$spacing-4: $size-base * 2;
+
+$border-radius: 4px;
+
+html {
+  font-size: $size-base;
+  color: $color-grey-darker;
+  background-color: $color-grey-light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+@import "fonts";
+@import "typography";
+@import "forms";
+@import "clickables";
+@import "elevations";

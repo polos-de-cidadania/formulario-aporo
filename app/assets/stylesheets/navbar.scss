@@ -1,0 +1,34 @@
+header {
+  position: sticky;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 64px;
+  display: grid;
+  grid-template-columns: 1fr max-content 1fr;
+  align-items: center;
+  padding: 0 $spacing-2;
+  background-color: $color-white;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+header img {
+  height: 32px;
+  width: auto;
+}
+
+header h1 {
+  @extend .text-title;
+  flex-grow: 1;
+  text-align: center;
+  color: $color-primary-dark;
+}
+
+header nav {
+  display: flex;
+  flex-direction: row-reverse;
+
+  i {
+    font-size: $font-size-larger;
+  }
+}
