@@ -9,12 +9,9 @@
 }
 
 .gallery {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  margin: $spacing-1;
-
-  & > * {
-    margin: $spacing-1;
-  }
+  // dumb sass fix https://sass-lang.com/documentation/syntax/special-functions#min-and-max
+  max-width: unquote("min(100vw, 75rem)");
+  display: grid;
+  margin: $spacing-2;
+  grid-gap: $spacing-2;
 }

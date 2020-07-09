@@ -34,8 +34,11 @@
     text-align: center;
   }
 
+  .gallery {
+    grid-template-columns: repeat(auto-fit, 20rem);
+  }
+
   li {
-    min-width: 17rem;
     flex-grow: 1;
     display: grid;
     grid-template-columns: 1fr 7.5rem;
