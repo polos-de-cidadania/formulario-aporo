@@ -1,3 +1,6 @@
 pt-BR:
   users:
     title: Usuários - Áporo Formulários
+  devise:
+    sessions:
+      title: Autenticação - Áporo Formulários

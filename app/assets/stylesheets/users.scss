@@ -1,6 +1,8 @@
 #user {
+  // #show
   .summary {
     margin-bottom: $spacing-2;
+    max-width: 20rem;
 
     sub {
       top: 0;
@@ -8,16 +10,68 @@
     }
   }
 
-  p {
+  .details {
     margin-bottom: $spacing-4;
   }
 
+  // #edit, #new
   .actions {
     flex-direction: row;
     justify-content: space-between;
 
+
     a i {
       font-size: $font-size-larger;
+    }
+  }
+
+  // #index
+  header {
+    @extend .elevated;
+    @extend .container;
+    padding: $spacing-2;
+    margin: $spacing-3 $spacing-2 0;
+    text-align: center;
+  }
+
+  .gallery {
+    grid-template-columns: repeat(auto-fit, 20rem);
+  }
+
+  li {
+    flex-grow: 1;
+    display: grid;
+    grid-template-columns: 1fr 7.5rem;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-areas: "name admin" "email email" "edit show";
+    align-items: baseline;
+
+    .name {
+      @extend .text-lead;
+      grid-area: name;
+    }
+
+    .admin {
+      @extend .text-label;
+      grid-area: admin;
+      color: $color-grey-dark;
+      text-transform: uppercase;
+      text-align: right;
+    }
+
+    .email {
+      @extend .text-body;
+      grid-area: email;
+    }
+
+    .edit {
+      grid-area: edit;
+    }
+
+    .show {
+      grid-area: show;
+      @extend .button;
+      @extend .secondary;
     }
   }
 }

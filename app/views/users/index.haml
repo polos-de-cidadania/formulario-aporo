@@ -1,25 +1,12 @@
-%h1 Listing users
-
-%table
-  %thead
-    %tr
-      %th Name
-      %th Email
-      %th Password
-      %th
-      %th
-      %th
-
-  %tbody
+%section#user
+  %header.title
+    %h2.text-title Usuários
+  %ul.gallery
     - @users.each do |user|
-      %tr
-        %td= user.name
-        %td= user.email
-        %td= user.password
-        %td= link_to 'Show', user
-        %td= link_to 'Edit', edit_user_path(user)
-        %td= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' }
+      %li.container.elevated
+        %h3.name= user.name
+        %span.admin= t("attributes.admin.#{false}")
+        %p.email= user.email
+        = link_to t("verbs.edit"), edit_user_path(user), class: 'edit'
+        = link_to t('verbs.show'), user, class: 'show'
 
-%br
-
-= link_to 'New User', new_user_path

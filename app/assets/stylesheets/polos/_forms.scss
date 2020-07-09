@@ -5,8 +5,11 @@
 .actions {
   margin-top: $spacing-4;
   width: 100%;
-  display: flex;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-auto-flow: column;
   align-items: center;
+  grid-gap: $spacing-2;
 
   a.button,
   button,

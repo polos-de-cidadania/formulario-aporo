@@ -5,12 +5,14 @@
   }
 
   .actions {
+    display: flex;
     flex-direction: column;
+    grid-gap: $spacing-4;
+    margin-top: $spacing-3;
   }
 
   .primary {
     width: 100%;
-    margin-bottom: $spacing-3;
   }
 
   .links {

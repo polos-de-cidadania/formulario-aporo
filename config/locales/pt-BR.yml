@@ -10,5 +10,8 @@ pt-BR:
     email: E-mail
     password: Senha
     password_confirm: Confirmação de Senha
+    admin:
+      false: usuário
+      true: administrador
   users:
     title: Usuários - Áporo Formulários

@@ -1,8 +1,4 @@
 .main-container.elevated#user
   %h2.summary.text-lead= "Editando usuário: #{@user.name}"
-  - content_for :links do
-    = link_to users_path do
-      = icon 'fas', 'arrow-left'
-    = link_to t('verbs.show'), @user, class: 'button secondary'
   = render 'form'
 
