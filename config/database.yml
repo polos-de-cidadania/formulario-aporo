@@ -82,6 +82,4 @@ test:
 #
 production:
   <<: *default
-  database: aporo_form_production
-  username: aporo_form
-  password: <%= ENV['APORO_FORM_DATABASE_PASSWORD'] %>
+  url: <%= ENV['DATABASE_URL'] %>
