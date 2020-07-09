@@ -27,6 +27,9 @@ Rails.application.configure do
   # Compress CSS using a preprocessor.
   # config.assets.css_compressor = :sass
 
+  # So Sprockets doesn't run my scss through Sass::Engine 2x
+  config.assets.css_compressor = Class.new { def self.compress(_); end }
+
   # Do not fallback to assets pipeline if a precompiled asset is missed.
   config.assets.compile = false
 
