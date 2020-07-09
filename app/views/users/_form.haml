@@ -15,5 +15,8 @@
     = f.label :password
     = f.text_field :password
   .actions
-    = yield :links
+    = link_to users_path do
+      = icon 'fas', 'arrow-left'
+    - if action_name == 'edit'
+      = link_to t('verbs.show'), @user, class: 'button secondary'
     = f.submit t('verbs.save'), class: 'primary'

@@ -2,6 +2,7 @@
   // #show
   .summary {
     margin-bottom: $spacing-2;
+    max-width: 20rem;
 
     sub {
       top: 0;
@@ -17,6 +18,7 @@
   .actions {
     flex-direction: row;
     justify-content: space-between;
+
 
     a i {
       font-size: $font-size-larger;

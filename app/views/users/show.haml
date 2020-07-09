@@ -1,7 +1,12 @@
 .main-container.elevated#user
   .summary
     %h2.text-lead= @user.name
-    %sub= "Último login #{time_ago_in_words @user.last_sign_in_at} atrás"
+    %p
+      %sub= "Último login #{time_ago_in_words @user.last_sign_in_at} atrás"
+    %p
+      %sub
+        :plain
+          Criado em #{html_escape time_tag @user.created_at}
   .details
     %p= @user.email
   .actions
