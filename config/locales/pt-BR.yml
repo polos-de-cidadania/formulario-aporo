@@ -15,3 +15,6 @@ pt-BR:
       true: administrador
   users:
     title: Usuários - Áporo Formulários
+  errors:
+    messages:
+      not_saved: "Não foi possível salvar este(a) %{resource} devido a ${count} erros:"

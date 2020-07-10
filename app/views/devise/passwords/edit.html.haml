@@ -1,19 +1,15 @@
-%h2 Change your password
-= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  = f.hidden_field :reset_password_token
-  .field
-    = f.label :password, "New password"
-    %br/
-    - if @minimum_password_length
-      %em
-        (#{@minimum_password_length} characters minimum)
-      %br/
-    = f.password_field :password, autofocus: true, autocomplete: "new-password"
-  .field
-    = f.label :password_confirmation, "Confirm new password"
-    %br/
-    = f.password_field :password_confirmation, autocomplete: "new-password"
-  .actions
-    = f.submit "Change my password"
-= render "devise/shared/links"
+.main-container.elevated-high#auth
+  %h2.text-lead.title Alteração de senha
+  = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    = f.hidden_field :reset_password_token
+    .field
+      = f.label :password
+      = f.password_field :password, autofocus: true, autocomplete: "new-password"
+      %span (mínimo de #{@minimum_password_length} caracteres)
+    .field
+      = f.label :password_confirmation
+      = f.password_field :password_confirmation, autocomplete: "new-password"
+    .actions
+      = f.submit "Alterar", class: 'primary'
+      = render "devise/shared/links"
