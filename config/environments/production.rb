@@ -45,7 +45,7 @@ Rails.application.configure do
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
-  config.log_level = :debug
+  config.log_level = :warn
 
   # Prepend all log lines with the following tags.
   config.log_tags = [:request_id]
@@ -100,4 +100,18 @@ Rails.application.configure do
   # config.active_record.database_selector = { delay: 2.seconds }
   # config.active_record.database_resolver = ActiveRecord::Middleware::DatabaseSelector::Resolver
   # config.active_record.database_resolver_context = ActiveRecord::Middleware::DatabaseSelector::Resolver::Session
+
+  config.action_mailer.default_url_options = { host: ENV['DOMAIN'] }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address: ENV['SMTP_ADDRESS'],
+    port: ENV['SMTP_PORT'],
+    tls: true,
+    enable_starttls_auto: :true,
+    user_name: ENV['SMTP_USER'],
+    password: ENV['SMTP_PASS'],
+    authentication: 'plain',
+    # hostgator is bad
+    openssl_verify_mode: 'none'
+  }
 end

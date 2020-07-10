@@ -34,6 +34,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "letter_opener"
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false
   gem 'i18n-debug'
