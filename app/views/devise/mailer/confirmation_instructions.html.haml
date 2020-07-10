@@ -1,3 +1,3 @@
-%p Bem vindo à plataforma Áporo #{@resource.name}!
+%p Bem vindo à plataforma Áporo, #{@resource.name}!
 %p Para confirmar sua conta, por favor acesse o link abaixo:
 = link_to 'Confirmar meu email', confirmation_url(@resource, confirmation_token: @token)
