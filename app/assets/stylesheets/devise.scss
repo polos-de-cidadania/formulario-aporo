@@ -4,6 +4,15 @@
     margin-bottom: $spacing-3;
   }
 
+  .explanation {
+    margin-top: -$spacing-1;
+    margin-bottom: $spacing-3;
+  }
+
+  .errors {
+
+  }
+
   .actions {
     display: flex;
     flex-direction: column;
@@ -16,7 +25,9 @@
   }
 
   .links {
+    width: 100%;
     a {
+      text-align: center;
       display: block;
       margin-bottom: $spacing-0;
     }
