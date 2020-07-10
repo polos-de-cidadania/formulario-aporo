@@ -9,6 +9,7 @@
           Criado em #{html_escape time_tag @user.created_at}
   .details
     %p= @user.email
+    %p.admin= t("attributes.admin.#{@user.admin?}")
   .actions
     = link_to users_path do
       = icon 'fas', 'arrow-left'

@@ -12,6 +12,12 @@
 
   .details {
     margin-bottom: $spacing-4;
+
+    .admin {
+      @extend .text-label;
+      color: $color-grey-dark;
+      text-transform: uppercase;
+    }
   }
 
   // #edit, #new

@@ -9,7 +9,7 @@ pt-BR:
     name: Nome
     email: E-mail
     password: Senha
-    password_confirm: Confirmação de Senha
+    password_confirmation: Confirmação da senha
     admin:
       false: usuário
       true: administrador
