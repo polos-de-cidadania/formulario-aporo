@@ -12,6 +12,12 @@
 
   .details {
     margin-bottom: $spacing-4;
+
+    .admin {
+      @extend .text-label;
+      color: $color-grey-dark;
+      text-transform: uppercase;
+    }
   }
 
   // #edit, #new
@@ -29,9 +35,19 @@
   header {
     @extend .elevated;
     @extend .container;
+    display: flex;
     padding: $spacing-2;
-    margin: $spacing-3 $spacing-2 0;
-    text-align: center;
+    margin: $spacing-3 0 $spacing-2;
+
+    h2 {
+      text-align: center;
+      flex-grow: 1;
+    }
+    a {
+      @extend .button;
+      @extend .primary;
+      width: 7.5rem;
+    }
   }
 
   .gallery {

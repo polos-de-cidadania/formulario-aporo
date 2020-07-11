@@ -1,11 +1,12 @@
-%section#user
-  %header.title
+#user
+  %header
     %h2.text-title Usuários
+    = link_to t("verbs.create"), new_user_path if current_user.admin?
   %ul.gallery
     - @users.each do |user|
       %li.container.elevated
         %h3.name= user.name
-        %span.admin= t("attributes.admin.#{false}")
+        %span.admin= t("attributes.admin.#{user.admin?}")
         %p.email= user.email
         = link_to t("verbs.edit"), edit_user_path(user), class: 'edit'
         = link_to t('verbs.show'), user, class: 'show'

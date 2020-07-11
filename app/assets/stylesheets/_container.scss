@@ -9,9 +9,8 @@
 }
 
 .gallery {
-  // dumb sass fix https://sass-lang.com/documentation/syntax/special-functions#min-and-max
-  max-width: unquote("min(100vw, 75rem)");
+  // https://sass-lang.com/documentation/syntax/special-functions#min-and-max
+  min-width: unquote("min(calc(100vw - #{$spacing-2}), 75rem)");
   display: grid;
-  margin: $spacing-2;
   grid-gap: $spacing-2;
 }

@@ -4,3 +4,7 @@ pt-BR:
   devise:
     sessions:
       title: Autenticação - Áporo Formulários
+  helpers:
+    label:
+      user:
+        admin: Administrador
