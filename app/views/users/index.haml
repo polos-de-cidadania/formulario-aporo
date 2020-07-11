@@ -1,6 +1,7 @@
-%section#user
-  %header.title
+#user
+  %header
     %h2.text-title Usuários
+    = link_to t("verbs.create"), new_user_path if current_user.admin?
   %ul.gallery
     - @users.each do |user|
       %li.container.elevated

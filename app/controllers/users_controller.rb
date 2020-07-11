@@ -13,6 +13,8 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
+    redirect_to users_path unless current_user.admin?
+
     @user = User.new
   end
 
@@ -21,6 +23,8 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
+    return head :forbidden unless current_user.admin?
+
     @user = User.new(user_params)
 
     if @user.save

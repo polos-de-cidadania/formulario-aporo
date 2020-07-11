@@ -11,6 +11,7 @@ button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
+  display: inline-block;
   border: none;
   border-radius: $border-radius;
   padding: $spacing-1 0 $spacing-1 0;
