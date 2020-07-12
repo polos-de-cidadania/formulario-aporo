@@ -22,6 +22,7 @@ gem 'devise', '~> 4.7'
 gem 'font-awesome-sass', '~> 5.13.0'
 gem 'haml'
 gem 'haml-rails'
+gem 'rack-timeout', '~> 0.6.0'
 gem 'rails-i18n', '~> 6.0.0'
 
 # Reduces boot times through caching; required in config/boot.rb
@@ -34,10 +35,10 @@ group :development, :test do
 end
 
 group :development do
-  gem "letter_opener"
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false
   gem 'i18n-debug'
+  gem 'letter_opener'
   gem 'rubocop', '~> 0.86.0', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
