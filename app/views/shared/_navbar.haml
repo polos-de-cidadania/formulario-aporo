@@ -1,6 +1,16 @@
-%header#navbar
+%header#navbar{ data: { controller: 'navbar' }}
   = image_tag "aporo-icon.png"
   %h1 Plataforma Áporo
-  %nav
-    -# - if user_signed_in?
-    -#   = icon 'fas', 'bars'
+  - if user_signed_in?
+    %button{ data: { target: 'navbar.button', action: 'navbar#toggle' } }
+      = icon 'fas', 'bars'
+    %nav
+      %ul
+        %li
+          %a Respostas
+        %li
+          = link_to 'Usuários', users_path
+        %li
+          = link_to 'Minha Conta', user_path(current_user)
+        %li
+          = link_to 'Terminar Sessão', destroy_user_session_path, method: :delete

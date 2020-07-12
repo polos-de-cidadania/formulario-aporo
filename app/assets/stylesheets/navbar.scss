@@ -5,12 +5,18 @@ header#navbar {
   height: 64px;
   display: grid;
   grid-template-columns: 1fr max-content 1fr;
+  grid-template-rows: 64px min-content;
+  grid-template-areas: ". . ." ". drawer drawer";
   align-items: center;
-  padding: 0 $spacing-2;
-  background-color: $color-white;
-  box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+
+  @mixin navbar-container {
+    background-color: $color-white;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
+  }
+  @include navbar-container;
 
   img {
+    margin-left: $spacing-2;
     height: 32px;
     width: auto;
   }
@@ -22,12 +28,50 @@ header#navbar {
     color: $color-primary-dark;
   }
 
+  button {
+    padding: 0;
+    margin-right: $spacing-2;
+    justify-self: end;
+    background-color: transparent;
+    font-size: $font-size-larger;
+    color: $color-grey-darker;
+    transition: tranform 250ms ease-in-out;
+
+    &:hover, &.active {
+      color: $color-primary-dark;
+    }
+
+    &:active {
+      color: $color-primary-darker;
+    }
+
+    &.active {
+      transform: rotate(90deg);
+    }
+  }
+
   nav {
+    @include navbar-container;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 150ms linear, opacity 150ms ease-in-out;
+    grid-area: drawer;
     display: flex;
     flex-direction: row-reverse;
+    width: clamp(10rem, 100px, 33vw);
+    margin-left: auto;
+    padding: 0 $spacing-2 $spacing-2;
+    border-radius: $border-radius 0 $border-radius $border-radius;
 
-    i {
-      font-size: $font-size-larger;
+    li {
+      @extend .text-lead;
+      line-height: 2;
+      text-align: right;
     }
+  }
+
+  button.active + nav {
+    visibility: visible;
+    opacity: 1;
   }
 }
