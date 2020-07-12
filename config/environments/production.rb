@@ -25,9 +25,7 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress CSS using a preprocessor.
-  # config.assets.css_compressor = :sass
-
-  # So Sprockets doesn't run my scss through Sass::Engine 2x
+  # So Sprockets doesn't run my scss 2x through Sass::Engine
   config.assets.css_compressor = Class.new { def self.compress(_); end }
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -45,7 +43,7 @@ Rails.application.configure do
 
   # Use the lowest log level to ensure availability of diagnostic information
   # when problems arise.
-  config.log_level = :warn
+  config.log_level = :debug
 
   # Prepend all log lines with the following tags.
   config.log_tags = [:request_id]
