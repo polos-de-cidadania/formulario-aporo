@@ -2,7 +2,11 @@
   .summary
     %h2.text-lead= @user.name
     %p
-      %sub= "Último login #{time_ago_in_words @user.last_sign_in_at} atrás"
+      %sub
+        - if @user.last_sign_in_at
+          = "Último login #{time_ago_in_words @user.last_sign_in_at} atrás"
+        - else
+          = "Usuário ainda não realizou nenhum login"
     %p
       %sub
         :plain
