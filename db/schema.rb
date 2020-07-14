@@ -13,9 +13,10 @@
 ActiveRecord::Schema.define(version: 2020_07_13_013622) do
 
   # These are extensions that must be enabled in order to support this database
+  enable_extension "pgcrypto"
   enable_extension "plpgsql"
 
-  create_table "form_answers", force: :cascade do |t|
+  create_table "form_answers", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.boolean "concordo_dados"
     t.boolean "concordo_pesquisa"
     t.binary "nome_ciphertext"

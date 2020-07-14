@@ -2,7 +2,8 @@
 
 class CreateFormAnswers < ActiveRecord::Migration[6.0]
   def change
-    create_table :form_answers do |t| # rubocop:disable Metrics/BlockLength
+    enable_extension 'pgcrypto'
+    create_table :form_answers, id: :uuid do |t| # rubocop:disable Metrics/BlockLength
       t.boolean :concordo_dados
       t.boolean :concordo_pesquisa
 
