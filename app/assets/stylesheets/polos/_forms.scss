@@ -52,14 +52,16 @@ textarea {
   }
 }
 
-.field-checkbox {
-  @extend .field;
-
-  input[type='checkbox'] {
-    display: none;
+.checkbox {
+  [type='checkbox'], [type='radio'] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
   }
 
-  input[type=checkbox] + label:before {
+  @mixin container {
     @extend .fas;
     height: 24px;
     width: 24px;
@@ -67,11 +69,31 @@ textarea {
     padding: 2px;
     margin-right: $spacing-0;
     border: 2px solid $color-grey;
+  }
+
+  [type='checkbox'] + label:before {
+    @include container;
     border-radius: $border-radius;
   }
 
-  input[type=checkbox]:checked + label:before {
+  [type='radio'] + label:before {
+    @include container;
+    clip: rect(0px, 12px, 12px, 0px);
+    border-radius: 100%;
+  }
+
+  [type='checkbox']:checked + label:before {
     content: "\f00c";
+  }
+
+  [type='radio']:checked + label:before {
+    content: '\f111';
+  }
+
+  label {
+    cursor: pointer;
+    margin-top: $spacing-2;
+    margin-bottom: $spacing-2;
   }
 }
 

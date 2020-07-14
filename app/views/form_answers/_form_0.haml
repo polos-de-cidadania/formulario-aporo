@@ -1,0 +1,15 @@
+%section{ class: ('active' if active) }
+  .field
+    = form.label :concordo_dados
+    .checkbox
+      = form.radio_button :concordo_dados, 1
+      = form.label :concordo_dados_1, 'Concordo'
+      = form.radio_button :concordo_dados, 0
+      = form.label :concordo_dados_0, 'Não Concordo'
+  .field
+    = form.label :concordo_pesquisa
+    .checkbox
+      = form.radio_button :concordo_pesquisa, 1
+      = form.label :concordo_pesquisa_1, 'Concordo'
+      = form.radio_button :concordo_pesquisa, 0
+      = form.label :concordo_pesquisa_0, 'Não Concordo'

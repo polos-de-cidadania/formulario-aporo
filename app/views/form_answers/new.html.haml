@@ -1,0 +1,9 @@
+#form
+  %header.main-container.elevated
+    %h1 Cumprimento de pagamento VALE
+    = render 'form_intro' if @form_answer.page.zero?
+  = form_with model: @form_answer, url: '/formulario', local: true do |f|
+    = f.hidden_field :page
+    = render partial: 'form_0', locals: { form: f, active: active_section(0) }
+    .actions
+      = f.submit 'Save'
