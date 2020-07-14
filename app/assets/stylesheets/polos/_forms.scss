@@ -78,7 +78,6 @@ textarea {
 
   [type='radio'] + label:before {
     @include container;
-    clip: rect(0px, 12px, 12px, 0px);
     border-radius: 100%;
   }
 

@@ -27,6 +27,7 @@
     details {
       summary {
         @extend .text-label;
+        cursor: pointer;
       }
 
       p {
@@ -41,7 +42,6 @@
   }
 
   form {
-
     section {
       display: none;
 
@@ -57,7 +57,35 @@
       @extend .main-container;
       @extend .elevated;
     }
+
+    span.error {
+      @extend .text-label;
+      color: $color-danger;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-around;
+      padding: 0 $spacing-3 $spacing-4;
+
+      button {
+        @extend .secondary;
+        transition: color background-color 250ms ease-in-out;
+
+        &:hover {
+          background-color: $color-grey-darker;
+          color: $color-white;
+        }
+
+        &[disabled] {
+          visibility: hidden;
+        }
+      }
+
+      [type="submit"] {
+        @extend .primary;
+      }
+    }
   }
-
-
 }

@@ -16,7 +16,7 @@ button,
   border-radius: $border-radius;
   padding: $spacing-1 0 $spacing-1 0;
   text-align: center;
-  
+
   &:hover {
     text-decoration: none;
     cursor: pointer;
@@ -46,7 +46,6 @@ button,
       border: 2px solid $color-primary;
     }
   }
-
 }
 
 a {
@@ -58,6 +57,16 @@ a {
 
     i {
       color: $color-primary-dark;
+    }
+  }
+}
+
+details {
+
+
+  summary {
+    &:hover {
+      cursor: pointer;
     }
   }
 }
