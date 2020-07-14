@@ -1,10 +1,15 @@
 # frozen_string_literal: true
 
-class FormAnswer < ApplicationRecord
-  extend Enumerize
+class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
+  attr_accessor :page
+
+  before_validation :set_form_page
+  after_validation :update_form_page
+  validate :last_form_page
 
   attribute :concordo_dados, :boolean
   attribute :concordo_pesquisa, :boolean
+
   encrypts :nome
   encrypts :cpf
   encrypts :responsavel_nome
@@ -50,51 +55,88 @@ class FormAnswer < ApplicationRecord
   encrypts :covid_atencao_medica
   encrypts :duvidas_reclamacoes_sugestoes
 
-  enumerize :genero, in: %i[masculino feminino outro nao_declarado]
-  enumerize :raca, in: %i[branco preto pardo indigena asiatico outro nao_declarado]
-  enumerize :cadastro_digital, in: %i[sim nao acesso]
-  DENUNCIA_RESPOSTA = %i[nao insatisfatorio regular bom otimo].freeze
-  enumerize :denuncia_telefone_resposta, in: DENUNCIA_RESPOSTA
-  enumerize :denuncia_presencial_resposta, in: DENUNCIA_RESPOSTA
-  enumerize :denuncia_mpe_resposta, in: DENUNCIA_RESPOSTA
-  enumerize :denuncia_dp_resposta, in: DENUNCIA_RESPOSTA
-  enumerize :covid_resultado, in: %i[positivo negativo inconclusivo]
-  enumerize :covid_atencao_medica, in: %i[rede_publica rede_privada nao]
+  with_options if: -> { page >= 0 } do
+    validates :concordo_dados, :concordo_pesquisa, acceptance: true
+  end
 
-  validates :concordo_dados, :concordo_pesquisa, acceptance: true
-  validates :nome, :cpf, :telefone, :genero, :raca,
-            :endereco_rua, :endereco_numero, :endereco_complemento, :endereco_cep, :endereco_bairro, :endereco_cidade,
-            :cadastro_digital, :cadastro_dificuldades,
-            :concorda_acordo_valores, :pagamento_realizado,
-            :covid_sintomas, :covid_testado,
-            presence: true
-  validates :cadastro_dias,
-            numericality: { only_integer: true, allow_nil: true,
-                            greater_than: 0 }
-  validates :cadastro_tempo,
-            numericality: { only_integer: true, allow_nil: true,
-                            less_than_or_equal_to: 10,
-                            greater_than_or_equal_to: 1 }
-  validates :denuncia_telefone_numero,
-            numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :denuncia_telefone_resposta, presence: true, if: -> { denuncia_telefone_numero.positive? }
-  validates :denuncia_presencial_numero,
-            numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :denuncia_presencial_resposta, presence: true, if: -> { denuncia_presencial_numero.positive? }
-  validates :denuncia_mpe_numero,
-            numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :denuncia_mpe_resposta, presence: true, if: -> { denuncia_mpe_numero.positive? }
-  validates :denuncia_dp_numero,
-            numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-  validates :denuncia_dp_resposta, presence: true, if: -> { denuncia_dp_numero.positive? }
-  validates :concorda_acordo_trecho,
-            numericality: { only_integer: true,
-                            less_than_or_equal_to: 5,
-                            greater_than_or_equal_to: 1 }
-  validates :covid_testes_publica,
-            numericality: { only_integer: true, greater_than_or_equal_to: 0 },
-            if: -> { covid_testado }
-  validates :covid_testes_privada,
-            numericality: { only_integer: true, greater_than_or_equal_to: 0 },
-            if: -> { covid_testado }
+  with_options if: -> { page >= 1 } do
+    validates :nome, :cpf, :telefone,
+              :endereco_rua, :endereco_numero, :endereco_complemento, :endereco_cep, :endereco_bairro, :endereco_cidade,
+              presence: true
+    validates :genero, inclusion: { in: %w[masculino feminino outro nao_declarado] }, presence: true
+    validates :raca, inclusion: { in: %w[branco preto pardo indigena asiatico outro nao_declarado] }, presence: true
+  end
+
+  with_options if: -> { page >= 2 } do
+    validates :cadastro_dificuldades,
+              :concorda_acordo_valores, :pagamento_realizado,
+              presence: true
+    validates :cadastro_digital, inclusion: { in: %w[sim nao apenas_acesso] }
+    validates :cadastro_dias,
+              numericality: { only_integer: true, allow_nil: true,
+                              greater_than: 0 }
+    validates :cadastro_tempo,
+              numericality: { only_integer: true, allow_nil: true,
+                              less_than_or_equal_to: 10,
+                              greater_than_or_equal_to: 1 }
+  end
+
+  with_options if: -> { page >= 3 } do
+    validates :denuncia_telefone_numero,
+              numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+    validates :denuncia_telefone_resposta, presence: true, if: -> { denuncia_telefone_numero&.positive? }
+    validates :denuncia_presencial_numero,
+              numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+    validates :denuncia_presencial_resposta, presence: true, if: -> { denuncia_presencial_numero&.positive? }
+    validates :denuncia_mpe_numero,
+              numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+    validates :denuncia_mpe_resposta, presence: true, if: -> { denuncia_mpe_numero&.positive? }
+    validates :denuncia_dp_numero,
+              numericality: { only_integer: true, greater_than_or_equal_to: 0 }
+    validates :denuncia_dp_resposta, presence: true, if: -> { denuncia_dp_numero&.positive? }
+    validates :denuncia_telefone_resposta, :denuncia_presencial_resposta, :denuncia_mpe_resposta, :denuncia_dp_resposta,
+              inclusion: { in: %w[nao insatisfatorio regular bom otimo] }
+  end
+
+  with_options if: -> { page >= 4 } do
+    validates :concorda_acordo_trecho,
+              numericality: { only_integer: true,
+                              less_than_or_equal_to: 5,
+                              greater_than_or_equal_to: 1 }
+  end
+
+  with_options if: -> { page >= 5 } do
+    validates :covid_sintomas, :covid_testado,
+              presence: true
+    validates :covid_testes_publica,
+              numericality: { only_integer: true, greater_than_or_equal_to: 0 },
+              if: -> { covid_testado }
+    validates :covid_testes_privada,
+              numericality: { only_integer: true, greater_than_or_equal_to: 0 },
+              if: -> { covid_testado }
+    validates :covid_resultado, inclusion: { in: %i[positivo negativo inconclusivo] }
+    validates :covid_atencao_medica, inclusion: { in: %i[rede_publica rede_privada nao] }
+  end
+
+  private
+
+  def set_form_page
+    @page = page.to_i
+    @page = 0 unless page.between? 0, 5
+  end
+
+  def update_form_page
+    if errors.to_h.except(:page).empty?
+      @page += 1
+    elsif page.positive?
+      @page -= 1
+      valid?
+    end
+  end
+
+  def last_form_page
+    return if page == 5
+
+    errors.add :page, 'Formulário não está completo'
+  end
 end
