@@ -20,7 +20,7 @@ class FormAnswersController < ApplicationController
   private
 
   # Only allow a trusted parameter "white list" through.
-  def form_answer_params # rubocop:disable Metrics/MethodLength
+  def form_answer_params
     params.require(:form_answer)
           .permit(:page,
                   :concordo_dados,
@@ -29,9 +29,9 @@ class FormAnswersController < ApplicationController
                   :cpf,
                   :responsavel_nome,
                   :responsavel_cpf,
-                  :telefone,
                   :genero,
                   :raca,
+                  :telefone,
                   :endereco_rua,
                   :endereco_numero,
                   :endereco_complemento,
@@ -43,6 +43,7 @@ class FormAnswersController < ApplicationController
                   :cadastro_dias,
                   :cadastro_tempo,
                   :concorda_acordo_valores,
+                  :concorda_acordo_comentario,
                   :pagamento_realizado,
                   :denuncia_telefone_numero,
                   :denuncia_telefone_resposta,
@@ -58,12 +59,11 @@ class FormAnswersController < ApplicationController
                   :denuncia_dp_comentario,
                   :denuncia_outros,
                   :concorda_acordo_trecho,
+                  :covid_grupo_risco,
                   :covid_sintomas,
-                  :covid_testado,
-                  :covid_testes_publica,
-                  :covid_testes_privada,
-                  :covid_resultado,
                   :covid_atencao_medica,
+                  :covid_testado,
+                  :covid_resultado,
                   :duvidas_reclamacoes_sugestoes)
   end
 

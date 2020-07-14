@@ -118,7 +118,7 @@ class FormAnswer < ApplicationRecord
               inclusion: { in: %w[diabetes] }
     validates :covid_sintomas,
               presence: true
-    validates :covid_atencao_medica,
+    validates :covid_atencao_medica, presence: true,
               if: -> { covid_sintomas? }
     validates :covid_testado,
               inclusion: { in: %w[nao rede_publica rede_privada] }
