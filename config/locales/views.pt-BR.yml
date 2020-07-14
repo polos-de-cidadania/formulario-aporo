@@ -1,4 +1,6 @@
 pt-BR:
+  form_answers:
+    title:
   users:
     title: Usuários - Áporo Formulários
   devise:
@@ -16,9 +18,9 @@ pt-BR:
         cpf: CPF
         responsavel_nome: Nome completo do responsável pelo preenchimento (caso haja)
         responsavel_cpf: CPF do responsável pelo preenchimento (caso haja)
-        telefone: Número (com DDD)
         genero: Gênero
         raca: Autoidentificação racial
+        telefone: Número de telefone (com DDD)
         endereco: Endereço
         endereco_rua: Rua
         endereco_numero: Número
@@ -26,12 +28,12 @@ pt-BR:
         endereco_cep: CEP
         endereco_bairro: Bairro
         endereco_cidade: Cidade
-        cadastro_digital: Você teve acesso e realizou o cadastramento digital?
-        cadastro_dificuldades: Você teve dificuldades para preencher o cadastramento digital?
-        cadastro_dias: Informe quantos dias foi necessário para concluir o cadastramento digital.
+        cadastro_digital: Você teve acesso e realizou o seu cadastramento digital?
+        cadastro_dificuldades: Você teve dificuldades para preencher o seu cadastramento digital?
+        cadastro_dias: Informe quantos dias foram necessários para concluir o cadastramento digital.
         cadastro_tempo: Quanto tempo levou desde o cadastramento digital até o recebimento do salário?
         concorda_acordo_valores: Você concorda com este acordo e com os valores pagos?
-        pagamento_realizado: A VALE realizou o pagamento mensal para você?
+        pagamento_realizado: A Vale realizou o pagamento mensal para você?
         denuncia: Denúncia
         denuncia_numero: Informe quantas denúncias você realizou através desse órgão.
         denuncia_resposta: "Ocorreu o recebimento de resposta sobre a denúncia? Se sim, você classificaria como:"
@@ -44,13 +46,12 @@ pt-BR:
         denuncia_dp: Você realizou alguma denúncia envolvendo o cadastramento ou o acordo na Defensoria Pública?
         denuncia_dp_comentario: Deseja realizar algum comentário relacionado a Defensoria Pública?
         denuncia_outros: Realizou denúncias em outro(s) órgãos? Especifique.
-        concorda_acordo:
-          enunciado: "Você concorda com este trecho do acordo?"
-          trecho: "Fica desde já estipulado entre as partes que DEIXARÃO de receber o pagamento mensal aqueles que já receberam a indenização individual e os que vierem a recebê-Ia, sendo que o marco para o cancelamento do pagamento mensal será quando a indenização for devidamente depositada na conta bancária do beneficiário e não a mera pactuação. Servirá o comprovante de depósito como quitação da obrigação pela Vale."
+        concorda_acordo: "Você concorda com este trecho do acordo?"
+        acordo_trecho: "Fica desde já estipulado entre as partes que DEIXARÃO de receber o pagamento mensal aqueles que já receberam a indenização individual e os que vierem a recebê-Ia, sendo que o marco para o cancelamento do pagamento mensal será quando a indenização for devidamente depositada na conta bancária do beneficiário e não a mera pactuação. Servirá o comprovante de depósito como quitação da obrigação pela Vale."
         covid: COVID-19
         covid_sintomas: Você apresentou sintomas da COVID-19?
-        covid_testado: Você foi testado quanto a COVID-19?
-        covid_testes: Você realizou o teste através da rede %{rede}? Se sim, quantos?
-        covid_resultado: Qual foi o resultado do seu último teste?
-        covid_atencao_medica: Você necessitou de atenção médica em relação a COVID-19?
+        covid_testado: Você fez teste RTPCR para a COVID-19?
+        covid_testado_dica: (é o com cotonete no nariz e na garganta)
+        covid_resultado: Qual foi o resultado do seu teste?
+        covid_atencao_medica: Você necessitou de cuidados para COVID-19?
         duvidas_reclamacoes_sugestoes: Dúvidas, reclamações ou sugestões?
