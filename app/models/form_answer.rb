@@ -63,7 +63,7 @@ class FormAnswer < ApplicationRecord
     validates :nome,
               :endereco_rua, :endereco_numero, :endereco_cep, :endereco_bairro, :endereco_cidade,
               presence: true
-    validates :responsavel_cpf, presence: true, if: -> { responsavel_nome? }
+    validates :responsavel_cpf, presence: true, if: -> { page >= 1 && responsavel_nome? }
     validates :genero, inclusion: { in: %w[masculino feminino outro nao_declarado] }
     validates :raca, inclusion: { in: %w[branco preto pardo indigena asiatico outro nao_declarado] }
   end
@@ -81,7 +81,7 @@ class FormAnswer < ApplicationRecord
                               less_than_or_equal_to: 10,
                               greater_than_or_equal_to: 1 }
     validates :cadastro_dias, :cadastro_tempo,
-              presence: true, if: -> { cadastro_digital == 'sim' }
+              presence: true, if: -> { page >= 2 && cadastro_digital == 'sim' }
     validates :pagamento_realizado,
               presence: true
   end
@@ -90,18 +90,19 @@ class FormAnswer < ApplicationRecord
     validates :denuncia_telefone_numero,
               numericality: { only_integer: true, greater_than_or_equal_to: 0 }
     validates :denuncia_telefone_resposta,
-              presence: true, if: -> { denuncia_telefone_numero&.positive? }
+              presence: true, if: -> { page >= 3 && denuncia_telefone_numero&.positive? }
     validates :denuncia_presencial_numero,
               numericality: { only_integer: true, greater_than_or_equal_to: 0 }
     validates :denuncia_presencial_resposta,
-              presence: true, if: -> { denuncia_presencial_numero&.positive? }
+              presence: true, if: -> { page >= 3 && denuncia_presencial_numero&.positive? }
     validates :denuncia_mpe_numero,
               numericality: { only_integer: true, greater_than_or_equal_to: 0 }
     validates :denuncia_mpe_resposta,
-              presence: true, if: -> { denuncia_mpe_numero&.positive? }
+              presence: true, if: -> { page >= 3 && denuncia_mpe_numero&.positive? }
     validates :denuncia_dp_numero,
               numericality: { only_integer: true, greater_than_or_equal_to: 0 }
-    validates :denuncia_dp_resposta, presence: true, if: -> { denuncia_dp_numero&.positive? }
+    validates :denuncia_dp_resposta,
+              presence: true, if: -> { page >= 3 && denuncia_dp_numero&.positive? }
     validates :denuncia_telefone_resposta, :denuncia_presencial_resposta, :denuncia_mpe_resposta, :denuncia_dp_resposta,
               inclusion: { in: %w[nao insatisfatorio regular bom otimo] }, allow_nil: true
   end
@@ -118,14 +119,15 @@ class FormAnswer < ApplicationRecord
               inclusion: { in: %w[diabetes] }
     validates :covid_sintomas,
               presence: true
-    validates :covid_atencao_medica, presence: true,
-              if: -> { covid_sintomas? }
+    validates :covid_atencao_medica,
+              presence: true,
+              if: -> { page >= 5 && covid_sintomas? }
     validates :covid_testado,
               inclusion: { in: %w[nao rede_publica rede_privada] }
     validates :covid_resultado,
               inclusion: { in: %w[positivo negativo inconclusivo nao_deseja] }, allow_nil: true
     validates :covid_resultado,
-              presence: true, if: -> { covid_testado != 'nao' }
+              presence: true, if: -> { page >= 5 && covid_testado != 'nao' }
   end
 
   private
