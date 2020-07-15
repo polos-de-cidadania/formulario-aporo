@@ -105,7 +105,7 @@ Rails.application.configure do
     address: ENV['SMTP_ADDRESS'],
     port: ENV['SMTP_PORT'],
     tls: true,
-    enable_starttls_auto: :true,
+    enable_starttls_auto: true,
     user_name: ENV['SMTP_USER'],
     password: ENV['SMTP_PASS'],
     authentication: 'plain',

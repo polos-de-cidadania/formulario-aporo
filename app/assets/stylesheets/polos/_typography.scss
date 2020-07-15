@@ -1,14 +1,14 @@
 .text-title {
   font-family: $font-ubuntu;
   font-weight: 700;
-  font-size: $font-size-larger;
+  font-size: $font-size-largest;
   line-height: $spacing-4;
 }
 
 .text-lead {
   font-family: $font-ubuntu;
   font-weight: normal;
-  font-size: $font-size-large;
+  font-size: $font-size-larger;
   line-height: 1.4;
 }
 
@@ -32,7 +32,8 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6,
-p, sub, sup,, span,
+p, sub, sup, span,
+summary, li,
 [type='color'],
 [type='date'],
 [type='datetime'],
@@ -48,6 +49,7 @@ p, sub, sup,, span,
 [type='url'],
 [type='week'],
 input:not([type]),
+select,
 textarea {
   margin: 0;
   @extend .text-body;

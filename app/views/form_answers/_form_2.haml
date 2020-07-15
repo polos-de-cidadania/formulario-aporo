@@ -1,0 +1,10 @@
+%section{ form_section(active).deep_merge({ data: { controller: 'dependant-field', 'dependant-field-enable-value': 'sim' }}) }
+  = form.input :cadastro_digital, as: :radio_buttons, collection: %i[sim nao apenas_acesso], input_html: { data: { target: 'dependant-field.depended' }}
+  = form.input :cadastro_dificuldades, as: :radio_buttons, collection: %i[sim parcialmente nao]
+  %fieldset
+    = form.input :cadastro_dias, wrapper: :dependant, input_html: { data: { target: 'dependent-field.depends' }}
+    = form.input :cadastro_tempo, collection: Array(1..10).map(&:to_s).map(&:to_sym),
+      wrapper: :dependant, input_html: { data: { target: 'dependent-field.depends' }}
+  = form.input :concorda_acordo_valores, as: :radio_buttons, collection: %i[sim parcialmente nao]
+  = form.input :concorda_acordo_comentario, as: :text
+  = form.input :pagamento_realizado, as: :radio_buttons, collection: %i[true false]

@@ -1,4 +1,6 @@
 pt-BR:
+  form_answers:
+    title:
   users:
     title: Usuários - Áporo Formulários
   devise:

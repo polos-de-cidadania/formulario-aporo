@@ -1,0 +1,19 @@
+%section{ form_section(active) }
+  = form.input :covid_grupo_risco, as: :radio_buttons, collection: %i[idosos gestantes cronicos]
+  %fieldset{ data: { controller: 'dependant-field', 'dependant-field-enable-value': 'true' }}
+    = form.input :covid_sintomas, as: :radio_buttons, collection: %i[true false],
+      input_html: { data: { target: 'dependant-field.depended' }}
+    .field-composite.field-dependant{ data: { controller: 'composite-field' }}
+      = form.label :covid_atencao_medica, t('forms.labels.form_answer.covid_atencao_medica')
+      - %w[nao rede_publica rede_privada].map do |s|
+        .checkbox.composite
+          = form.radio_button :covid_atencao_medica, s, data: { target: 'composite-field.input dependant-field.depends' }
+          = form.label :"covid_atencao_medica_#{s}", t("forms.options.form_answer.covid_atencao_medica.#{s}")
+      .composite
+        = form.label :covid_atencao_medica, t('forms.options.form_answer.covid_atencao_medica.outro')
+        = form.input_field :covid_atencao_medica, data: { target: 'composite-field.input dependant-field.depends' }
+  %fieldset{ data: { controller: 'dependant-field', 'dependant-field-enable-value-not': 'nao' }}
+    = form.input :covid_testado, as: :radio_buttons, collection: %i[nao rede_publica rede_privada],
+      input_html: { data: { target: 'dependant-field.depended' }}
+    = form.input :covid_resultado, as: :radio_buttons, wrapper: :dependant, collection: %i[positivo negativo inconclusivo nao_deseja],
+      input_html: { data: { target: 'dependant-field.depends' }}
