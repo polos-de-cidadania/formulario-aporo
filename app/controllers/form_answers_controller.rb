@@ -1,11 +1,11 @@
 # frozen_string_literal: true
 
 class FormAnswersController < ApplicationController
-  before_action :set_form, only: [ :create]
+  before_action :set_form, only: [:create]
 
   # GET /formulario
   def new
-    @form_answer = FormAnswer.new(page: 3)
+    @form_answer = FormAnswer.new(page: 0)
   end
 
   # POST /formulario
