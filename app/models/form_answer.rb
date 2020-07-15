@@ -100,7 +100,7 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
       self.cadastro_tempo = nil
     end
     validates :pagamento_realizado,
-              presence: true
+              inclusion: { in: [true, false] }
   end
 
   with_options if: -> { page >= 3 } do
