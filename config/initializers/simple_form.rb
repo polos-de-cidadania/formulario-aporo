@@ -66,9 +66,9 @@ SimpleForm.setup do |config|
     # b.use :full_error, wrap_with: { tag: :span, class: :error }
   end
 
-  config.wrappers :in_fieldset, class: nil,
-                                valid_class: :field_valid,
-                                error_class: :field_with_errors do |b|
+  config.wrappers :dependant, class: 'field-dependant',
+                              valid_class: :field_valid,
+                              error_class: :field_with_errors do |b|
     b.use :html5
     b.optional :placeholder
     b.use :maxlength
