@@ -93,14 +93,15 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
                               less_than_or_equal_to: 10,
                               greater_than_or_equal_to: 1 },
               if: -> { page >= 2 && cadastro_digital == 'sim' }
+    validates :pagamento_realizado,
+              inclusion: { in: [true, false] }
+
     before_validation do
-      break if cadastro_digital == 'sim'
+      next if cadastro_digital == 'sim'
 
       self.cadastro_dias  = nil
       self.cadastro_tempo = nil
     end
-    validates :pagamento_realizado,
-              inclusion: { in: [true, false] }
   end
 
   with_options if: -> { page >= 3 } do
