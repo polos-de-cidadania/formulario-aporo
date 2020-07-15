@@ -45,7 +45,8 @@
     section {
       display: none;
 
-      &.active {
+      &.active, fieldset {
+        border: 0;
         display: grid;
         grid-template-columns: 1fr;
         grid-auto-flow: row;
@@ -53,16 +54,46 @@
       }
     }
 
-    .field {
+    .field, fieldset {
       @extend .main-container;
       @extend .elevated;
     }
 
+    .field-composite {
+      padding-bottom: $spacing-2;
+      border-bottom: 1px solid $color-grey;
+      .composite {
+        display: flex;
+        align-items: baseline;
+
+        input {
+          width: 20ch;
+          padding: 0 1ch;
+          margin: 0 1ch;
+          -moz-appearance: textfield;
+
+          &[type='number'] {
+            width: 10ch;
+
+            &::-webkit-inner-spin-button,
+            &::-webkit-outer-spin-button {
+              -webkit-appearance: none;
+            }
+          }
+        }
+      }
+    }
+
     label {
       font-size: $font-size-large;
+
       &.collection_radio_buttons {
         font-size: $font-size-base;
       }
+    }
+
+    input {
+      margin-top: $spacing-0;
     }
 
     span.error {

@@ -5,7 +5,7 @@ class FormAnswersController < ApplicationController
 
   # GET /formulario
   def new
-    @form_answer = FormAnswer.new(page: 0)
+    @form_answer = FormAnswer.new(page: 3)
   end
 
   # POST /formulario

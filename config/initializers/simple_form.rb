@@ -66,6 +66,21 @@ SimpleForm.setup do |config|
     # b.use :full_error, wrap_with: { tag: :span, class: :error }
   end
 
+  config.wrappers :in_fieldset, class: nil,
+                                valid_class: :field_valid,
+                                error_class: :field_with_errors do |b|
+    b.use :html5
+    b.optional :placeholder
+    b.use :maxlength
+    b.use :minlength
+    b.use :pattern
+    b.use :min_max
+    b.optional :readonly
+    b.use :label
+    b.use :input
+    b.use :error, wrap_with: { tag: :span, class: :error }
+  end
+
   config.wrappers :select_wrapper, class: :field,
                                    valid_class: :field_valid,
                                    error_class: :field_with_errors do |b|

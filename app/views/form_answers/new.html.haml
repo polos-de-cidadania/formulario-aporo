@@ -8,6 +8,7 @@
     = render partial: 'form_0', locals: { form: f, active: active_section(0) }
     = render partial: 'form_1', locals: { form: f, active: active_section(1) }
     = render partial: 'form_2', locals: { form: f, active: active_section(2) }
+    = render partial: 'form_3', locals: { form: f, active: active_section(3) }
     .actions
       %button{ data: { action: 'form-nav#back' }, disabled: @form_answer.page.zero? }
         Voltar

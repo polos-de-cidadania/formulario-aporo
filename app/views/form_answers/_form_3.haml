@@ -1,0 +1,50 @@
+%section{form_section(active)}
+  %fieldset
+    .field-composite{ data: { controller: 'composite-field' }}
+      = form.label :denuncia_telefone_numero, t('forms.labels.form_answer.denuncia_telefone')
+      .checkbox.composite
+        = form.radio_button :denuncia_telefone_numero, 0, { data: { target: 'composite-field.input' }}
+        = form.label :denuncia_telefone_numero_0, "Não"
+      .composite
+        = form.label :denuncia_telefone_numero, "Sim, "
+        = form.number_field :denuncia_telefone_numero, { data: { target: 'composite-field.input' }}
+        = form.label :denuncia_telefone_numero, " denúncias"
+    = form.input :denuncia_telefone_resposta, wrapper: :in_fieldset, label: t('forms.labels.form_answer.denuncia_resposta')
+    = form.input :denuncia_telefone_comentario, wrapper: :in_fieldset
+  %fieldset
+    .field-composite{ data: { controller: 'composite-field' }}
+      = form.label :denuncia_presencial_numero, t('forms.labels.form_answer.denuncia_presencial')
+      .checkbox.composite
+        = form.radio_button :denuncia_presencial_numero, 0, { data: { target: 'composite-field.input' }}
+        = form.label :denuncia_presencial_numero_0, "Não"
+      .composite
+        = form.label :denuncia_presencial_numero, "Sim, "
+        = form.number_field :denuncia_presencial_numero, { data: { target: 'composite-field.input' }}
+        = form.label :denuncia_presencial_numero, " denúncias"
+    = form.input :denuncia_presencial_resposta, wrapper: :in_fieldset, label: t('forms.labels.form_answer.denuncia_resposta')
+    = form.input :denuncia_presencial_comentario, wrapper: :in_fieldset
+  %fieldset
+    .field-composite{ data: { controller: 'composite-field' }}
+      = form.label :denuncia_mpe_numero, t('forms.labels.form_answer.denuncia_mpe')
+      .checkbox.composite
+        = form.radio_button :denuncia_mpe_numero, 0, { data: { target: 'composite-field.input' }}
+        = form.label :denuncia_mpe_numero_0, "Não"
+      .composite
+        = form.label :denuncia_mpe_numero, "Sim, "
+        = form.number_field :denuncia_mpe_numero, { data: { target: 'composite-field.input' }}
+        = form.label :denuncia_mpe_numero, " denúncias"
+    = form.input :denuncia_mpe_resposta, wrapper: :in_fieldset, label: t('forms.labels.form_answer.denuncia_resposta')
+    = form.input :denuncia_mpe_comentario, wrapper: :in_fieldset
+  %fieldset
+    .field-composite{ data: { controller: 'composite-field' }}
+      = form.label :denuncia_dp_numero, t('forms.labels.form_answer.denuncia_dp')
+      .checkbox.composite
+        = form.radio_button :denuncia_dp_numero, 0, { data: { target: 'composite-field.input' }}
+        = form.label :denuncia_dp_numero_0, "Não"
+      .composite
+        = form.label :denuncia_dp_numero, "Sim, "
+        = form.number_field :denuncia_dp_numero, { data: { target: 'composite-field.input' }}
+        = form.label :denuncia_dp_numero, " denúncias"
+    = form.input :denuncia_dp_resposta, wrapper: :in_fieldset, label: t('forms.labels.form_answer.denuncia_resposta')
+    = form.input :denuncia_dp_comentario, wrapper: :in_fieldset
+  = form.input :denuncia_outros, as: :text
