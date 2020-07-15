@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'barnes'
+
 # Puma can serve each request in a thread from an internal thread pool.
 # The `threads` method setting takes two numbers: a minimum and maximum.
 # Any libraries that use thread pools should be configured to match
@@ -35,6 +37,10 @@ workers ENV.fetch('WEB_CONCURRENCY', 2)
 # process behavior so workers use less memory.
 #
 preload_app!
+
+before_fork do
+  Barnes.start
+end
 
 on_worker_boot do
   # Worker specific setup for Rails 4.1+
