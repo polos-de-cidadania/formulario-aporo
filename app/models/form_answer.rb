@@ -121,7 +121,7 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
     validates :denuncia_dp_resposta,
               presence: true, if: -> { page >= 3 && denuncia_dp_numero&.positive? }
     validates :denuncia_telefone_resposta, :denuncia_presencial_resposta, :denuncia_mpe_resposta, :denuncia_dp_resposta,
-              inclusion: { in: %w[nao insatisfatorio regular bom otimo] }, allow_nil: true
+              inclusion: { in: %w[nao insatisfatorio regular bom otimo], allow_blank: true }
   end
 
   with_options if: -> { page >= 4 } do

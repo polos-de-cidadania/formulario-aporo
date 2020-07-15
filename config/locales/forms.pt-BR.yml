@@ -124,11 +124,11 @@ pt-BR:
           "true": Sim
           "false": Não
         denuncia_resposta:
-          nao: Não
-          insatisfatorio: Insatisfatório
-          regular: Regular
-          bom: Bom
-          otimo: Ótimo
+          "nao": Não
+          "insatisfatorio": Insatisfatório
+          "regular": Regular
+          "bom": Bom
+          "otimo": Ótimo
         covid_grupo_risco:
           idosos: Idosos
           gestantes: Gestantes
