@@ -16,9 +16,12 @@ export default class extends Controller {
     clear_others = (modified_input) => {
         this.inputTargets.forEach( input => {
             if (input === modified_input) return
-            input.checked = false
-            input.selected = false
-            input.value = null
+            if (input.type == 'radio')
+                input.checked = false
+            if (input.type == 'checkbox')
+                input.selected = false
+            else
+                input.value = null
         })
     }
 }
