@@ -54,22 +54,48 @@
       }
     }
 
-    .field, fieldset {
+    fieldset, section > .field {
       @extend .main-container;
       @extend .elevated;
     }
 
+    fieldset > .field {
+      margin-bottom: 0;
+    }
+
+    .checkbox-inline {
+      @extend .checkbox;
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+
+      .inline-option {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+
+    input[type='radio'] + label {
+      margin-left: 1ch;
+    }
+
     .field-composite {
-      padding-bottom: $spacing-2;
-      border-bottom: 1px solid $color-grey;
+      label:first-child {
+        margin-bottom: $spacing-2;
+      }
+
       .composite {
         display: flex;
         align-items: baseline;
 
-        input {
-          width: 20ch;
+
+        input[type='radio'] + label {
+          margin: $spacing-1 1ch;
+        }
+
+        input:not([type='radio']) {
           padding: 0 1ch;
-          margin: 0 1ch;
+          margin: $spacing-1 1ch;
           -moz-appearance: textfield;
 
           &[type='number'] {
@@ -82,6 +108,19 @@
           }
         }
       }
+    }
+
+    .field-dependant {
+      display: none;
+    }
+
+    [data-dependant-field-enabled='true'] .field-dependant {
+      display: block;
+    }
+
+    :not(.field-dependant) + .field-dependant {
+      padding-top: $spacing-2;
+      border-top: 1px solid $color-grey;
     }
 
     label {
