@@ -85,14 +85,20 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
     validates :cadastro_dificuldades, :concorda_acordo_valores,
               inclusion: { in: %w[sim parcialmente nao] }
     validates :cadastro_dias,
-              numericality: { only_integer: true, allow_nil: true,
-                              greater_than: 0 }
+              numericality: { only_integer: true,
+                              greater_than: 0 },
+              if: -> { page >= 2 && cadastro_digital == 'sim' }
     validates :cadastro_tempo,
-              numericality: { only_integer: true, allow_nil: true,
+              numericality: { only_integer: true,
                               less_than_or_equal_to: 10,
-                              greater_than_or_equal_to: 1 }
-    validates :cadastro_dias, :cadastro_tempo,
-              presence: true, if: -> { page >= 2 && cadastro_digital == 'sim' }
+                              greater_than_or_equal_to: 1 },
+              if: -> { page >= 2 && cadastro_digital == 'sim' }
+    before_validation do
+      break if cadastro_digital == 'sim'
+
+      self.cadastro_dias  = nil
+      self.cadastro_tempo = nil
+    end
     validates :pagamento_realizado,
               presence: true
   end
@@ -120,25 +126,24 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
 
   with_options if: -> { page >= 4 } do
     validates :concorda_acordo_trecho,
-              numericality: { only_integer:             true,
-                              less_than_or_equal_to:    5,
+              numericality: { only_integer: true,
+                              less_than_or_equal_to: 5,
                               greater_than_or_equal_to: 1 }
   end
 
   with_options if: -> { page >= 5 } do
     validates :covid_grupo_risco,
-              inclusion: { in: %w[diabetes] }
+              inclusion: { in: %w[idosos gestantes cronicos] }
     validates :covid_sintomas,
               presence: true
     validates :covid_atencao_medica,
               presence: true,
-              if:       -> { page >= 5 && covid_sintomas? }
+              if: -> { page >= 5 && covid_sintomas? }
     validates :covid_testado,
               inclusion: { in: %w[nao rede_publica rede_privada] }
     validates :covid_resultado,
-              inclusion: { in: %w[positivo negativo inconclusivo nao_deseja] }, allow_nil: true
-    validates :covid_resultado,
-              presence: true, if: -> { page >= 5 && covid_testado != 'nao' }
+              inclusion: { in: %w[positivo negativo inconclusivo nao_deseja] },
+              if: -> { page >= 5 && covid_testado != 'nao' }
   end
 
   private
