@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2020_07_13_013622) do
     t.binary "cadastro_dias_ciphertext"
     t.binary "cadastro_tempo_ciphertext"
     t.binary "concorda_acordo_valores_ciphertext"
-    t.binary "concorda_acordo_comentario"
+    t.binary "concorda_acordo_comentario_ciphertext"
     t.binary "pagamento_realizado_ciphertext"
     t.binary "denuncia_telefone_numero_ciphertext"
     t.binary "denuncia_telefone_resposta_ciphertext"

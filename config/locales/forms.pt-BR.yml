@@ -1,7 +1,4 @@
 pt-BR:
-  simple_form:
-    yes: Sim
-    no: Não
   forms:
     required:
       text: "obrigatório"
@@ -55,6 +52,7 @@ pt-BR:
         cadastro_dias: Informe quantos dias foram necessários para concluir o cadastramento digital.
         cadastro_tempo: Quanto tempo levou desde o cadastramento digital até o recebimento do salário?
         concorda_acordo_valores: Você concorda com este acordo e com os valores pagos?
+        concorda_acordo_comentario: Gostaria de fazer algum comentário sobre o acordo?
         pagamento_realizado: A Vale realizou o pagamento mensal para você?
         denuncia: Denúncia
         denuncia_numero: Informe quantas denúncias você realizou através desse órgão.
@@ -79,10 +77,6 @@ pt-BR:
         duvidas_reclamacoes_sugestoes: Dúvidas, reclamações ou sugestões?
     options:
       defaults:
-        cadastro_sim_nao_parcialmente:
-          sim: Sim
-          parcialmente: Parcialmente
-          nao: Não
         denuncia_resposta:
           nao: Não
           insatisfatorio: Insatisfatório
@@ -113,14 +107,25 @@ pt-BR:
           sim: Sim
           nao: Não
           apenas_acesso: Tive acesso, mas não me cadastrei
+        cadastro_dificuldades:
+          sim: Sim
+          parcialmente: Parcialmente
+          nao: Não
         cadastro_tempo:
-          1: 1 semana
-          2: 2 semanas
-          3: 3 semanas
-          4: 4 semanas
-          5: 5 semanas
-          6: 6 semanas
-          7: 7 semanas
-          8: 8 semanas
-          9: 9 semanas
-          10: 10 semanas ou mais
+          "1": 1 semana
+          "2": 2 semanas
+          "3": 3 semanas
+          "4": 4 semanas
+          "5": 5 semanas
+          "6": 6 semanas
+          "7": 7 semanas
+          "8": 8 semanas
+          "9": 9 semanas
+          "10": 10 semanas ou mais
+        concorda_acordo_valores:
+          sim: Sim
+          nao: Não
+          parcialmente: Parcialmente
+        pagamento_realizado:
+          "true": Sim
+          "false": Não

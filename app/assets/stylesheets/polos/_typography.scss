@@ -49,6 +49,7 @@ summary, li,
 [type='url'],
 [type='week'],
 input:not([type]),
+select,
 textarea {
   margin: 0;
   @extend .text-body;
