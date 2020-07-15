@@ -2,9 +2,11 @@
   %header.main-container.elevated
     %h1 Cumprimento de pagamento VALE
     = render 'form_intro' if @form_answer.page.zero?
-  = simple_form_for @form_answer, url: '/formulario', remote: false, data: { controller: 'form-nav' } do |f|
+  = simple_form_for @form_answer, url: '/formulario', remote: false,
+    data: { controller: 'form-nav' }, html: { autocomplete: 'off' } do |f|
     = f.hidden_field :page, { data: { target: 'form-nav.page' }}
     = render partial: 'form_0', locals: { form: f, active: active_section(0) }
+    = render partial: 'form_1', locals: { form: f, active: active_section(1) }
     .actions
       %button{ data: { action: 'form-nav#back' }, disabled: @form_answer.page.zero? }
         Voltar

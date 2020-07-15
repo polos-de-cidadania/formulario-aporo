@@ -18,9 +18,10 @@ $font-source: "Source Sans Pro", sans-serif;
 
 $size-base: 16px;
 
-$font-size-base: $size-base;
-$font-size-large: $size-base * 1.25;
-$font-size-larger: $font-size-large * 1.2;
+$font-size-base: 16px;
+$font-size-large: 18px;
+$font-size-larger: 20px;
+$font-size-largest: 24px;
 
 $spacing-0: $size-base / 4;
 $spacing-1: $size-base / 2;
@@ -47,4 +48,3 @@ html {
 @import "tables";
 @import "lists";
 @import "forms";
-

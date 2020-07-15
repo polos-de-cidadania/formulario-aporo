@@ -20,7 +20,7 @@ class FormAnswersController < ApplicationController
   private
 
   # Only allow a trusted parameter "white list" through.
-  def form_answer_params
+  def form_answer_params # rubocop:disable Metrics/MethodLength
     params.require(:form_answer)
           .permit(:page,
                   :concordo_dados,

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class FormAnswer < ApplicationRecord
+class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
   attr_accessor :page
 
   before_validation :set_form_page
@@ -63,9 +63,20 @@ class FormAnswer < ApplicationRecord
     validates :nome,
               :endereco_rua, :endereco_numero, :endereco_cep, :endereco_bairro, :endereco_cidade,
               presence: true
-    validates :responsavel_cpf, presence: true, if: -> { page >= 1 && responsavel_nome? }
-    validates :genero, inclusion: { in: %w[masculino feminino outro nao_declarado] }
-    validates :raca, inclusion: { in: %w[branco preto pardo indigena asiatico outro nao_declarado] }
+    validates :cpf, :responsavel_cpf,
+              format: { with: /\A\d{3}.\d{3}.\d{3}-\d{2}\z/, allow_blank: true }
+    validates :cpf,
+              presence: true, if: -> { page >= 1 && responsavel_cpf.blank? }
+    validates :responsavel_cpf,
+              presence: true, if: -> { page >= 1 && responsavel_nome? }
+    validates :genero,
+              inclusion: { in: %w[masculino feminino outro nao_declarado] }
+    validates :raca,
+              inclusion: { in: %w[branco preto pardo indigena asiatico outro nao_declarado] }
+    validates :telefone,
+              format: { with: /\A\(\d{2}\) 9?\d{4}-\d{4}\z/, allow_blank: true }
+    validates :endereco_cep,
+              format: { with: /\A\d{5}-\d{3}\z/ }
   end
 
   with_options if: -> { page >= 2 } do
@@ -109,8 +120,8 @@ class FormAnswer < ApplicationRecord
 
   with_options if: -> { page >= 4 } do
     validates :concorda_acordo_trecho,
-              numericality: { only_integer: true,
-                              less_than_or_equal_to: 5,
+              numericality: { only_integer:             true,
+                              less_than_or_equal_to:    5,
                               greater_than_or_equal_to: 1 }
   end
 
@@ -121,7 +132,7 @@ class FormAnswer < ApplicationRecord
               presence: true
     validates :covid_atencao_medica,
               presence: true,
-              if: -> { page >= 5 && covid_sintomas? }
+              if:       -> { page >= 5 && covid_sintomas? }
     validates :covid_testado,
               inclusion: { in: %w[nao rede_publica rede_privada] }
     validates :covid_resultado,
@@ -133,17 +144,12 @@ class FormAnswer < ApplicationRecord
   private
 
   def set_form_page
-    @page = page.to_i
-    @page = 0 unless page.between? 0, 5
+    self.page = page.to_i
+    self.page = 0 unless page.between? 0, 5
   end
 
   def update_form_page
-    if errors.to_h.except(:page).empty?
-      @page += 1
-    elsif page.positive?
-      @page -= 1
-      valid?
-    end
+    self.page += 1 if errors.to_h.except(:page).empty?
   end
 
   def last_form_page

@@ -58,6 +58,13 @@
       @extend .elevated;
     }
 
+    label {
+      font-size: $font-size-large;
+      &.collection_radio_buttons {
+        font-size: $font-size-base;
+      }
+    }
+
     span.error {
       @extend .text-label;
       color: $color-danger;

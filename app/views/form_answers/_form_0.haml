@@ -1,3 +1,3 @@
 %section{form_section(active)}
-  = form.input :concordo_dados, as: :radio_buttons, collection: concordo_collection
-  = form.input :concordo_pesquisa, as: :radio_buttons,  collection: concordo_collection
+  = form.input :concordo_dados, as: :radio_buttons, collection: %i[true false]
+  = form.input :concordo_pesquisa, as: :radio_buttons,  collection: %i[true false]

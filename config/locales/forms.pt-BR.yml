@@ -4,8 +4,8 @@ pt-BR:
     no: Não
   forms:
     required:
-      text: 'obrigatório'
-      mark: '*'
+      text: "obrigatório"
+      mark: "*"
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
@@ -32,8 +32,9 @@ pt-BR:
     #     age: 'Select your age'
     labels:
       form_answer:
-        concordo_dados: "Eu concordo que li e compreendi que meus dados, fornecidos neste formulário,
-         serão acessados apenas pelos pesquisadores extensionistas do programa Polos de Cidadania."
+        concordo_dados:
+          "Eu concordo que li e compreendi que meus dados, fornecidos neste formulário,
+          serão acessados apenas pelos pesquisadores extensionistas do programa Polos de Cidadania."
         concordo_pesquisa: Eu concordo e compreendo que meus dados serão usados para pesquisa-diagnóstica realizada pelo programa Polos de Cidadania.
         nome: Nome completo
         cpf: CPF
@@ -77,7 +78,49 @@ pt-BR:
         covid_atencao_medica: Você necessitou de cuidados para COVID-19?
         duvidas_reclamacoes_sugestoes: Dúvidas, reclamações ou sugestões?
     options:
+      defaults:
+        cadastro_sim_nao_parcialmente:
+          sim: Sim
+          parcialmente: Parcialmente
+          nao: Não
+        denuncia_resposta:
+          nao: Não
+          insatisfatorio: Insatisfatório
+          regular: Regular
+          bom: Bom
+          otimo: Ótimo
       form_answer:
         concordo_dados:
-          true: Concordo
-          false: Não Concordo
+          "true": Concordo
+          "false": Não Concordo
+        concordo_pesquisa:
+          "true": Concordo
+          "false": Não Concordo
+        genero:
+          masculino: Masculino
+          feminino: Feminino
+          outro: Outro
+          nao_declarado: Não Declarar
+        raca:
+          branco: Branco
+          preto: Preto
+          pardo: Pardo
+          indigena: Indígena
+          asiatico: Asiático
+          outro: Outro
+          nao_declarado: Não Declarar
+        cadastro_digital:
+          sim: Sim
+          nao: Não
+          apenas_acesso: Tive acesso, mas não me cadastrei
+        cadastro_tempo:
+          1: 1 semana
+          2: 2 semanas
+          3: 3 semanas
+          4: 4 semanas
+          5: 5 semanas
+          6: 6 semanas
+          7: 7 semanas
+          8: 8 semanas
+          9: 9 semanas
+          10: 10 semanas ou mais
