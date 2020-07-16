@@ -17,10 +17,15 @@ pt-BR:
     #       email: 'E-mail to sign in.'
     #     edit:
     #       email: 'E-mail.'
-    # hints:
-    #   defaults:
-    #     username: 'User name to sign in.'
-    #     password: 'No special characters, please.'
+    hints:
+      form_answer:
+        cpf: apenas números
+        responsavel_cpf: apenas números
+        telefone: apenas números (com DDD)
+        endereco_cep: apenas números
+    placeholders:
+      form_answer:
+        telefone: 31123456789
     # include_blanks:
     #   defaults:
     #     age: 'Rather not say'

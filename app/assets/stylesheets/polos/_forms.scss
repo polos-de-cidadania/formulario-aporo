@@ -1,5 +1,15 @@
 .field {
   margin-bottom: $spacing-2;
+
+  span.hint, span.error {
+    @extend .text-label;
+    font-size: small;
+  }
+
+  span + span::before {
+    color: $color-grey-darker;
+    content: ', ';
+  }
 }
 
 .actions {
@@ -116,8 +126,6 @@ select {
   }
 
   span.error {
-    @extend .text-label;
-    font-size: small;
     color: $color-danger;
   }
 
