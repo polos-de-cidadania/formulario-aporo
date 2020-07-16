@@ -1,6 +1,12 @@
 pt-BR:
+  form_answers:
+    title:
   users:
     title: Usuários - Áporo Formulários
   devise:
     sessions:
       title: Autenticação - Áporo Formulários
+  helpers:
+    label:
+      user:
+        admin: Administrador

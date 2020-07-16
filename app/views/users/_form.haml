@@ -1,19 +1,24 @@
 = form_for @user do |f|
-  - if @user.errors.any?
-    #error_explanation
-      %h2= "#{pluralize(@user.errors.count, "error")} prohibited this user from being saved:"
-      %ul
-        - @user.errors.full_messages.each do |message|
-          %li= message
   .field
     = f.label :name
     = f.text_field :name
   .field
     = f.label :email
     = f.text_field :email
+  - if current_user.admin?
+    .field-checkbox
+      = f.check_box :admin
+      = f.label :admin
   .field
     = f.label :password
     = f.text_field :password
+    - @user.errors.full_messages_for(:password).each do |error|
+      %span= error
+  .field
+    = f.label :password_confirmation
+    = f.text_field :password_confirmation, autocomplete: "new-password"
+    - @user.errors.full_messages_for(:password_confirmation).each do |error|
+      %span= error
   .actions
     = link_to users_path do
       = icon 'fas', 'arrow-left'

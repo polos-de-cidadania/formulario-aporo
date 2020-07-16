@@ -9,9 +9,12 @@ pt-BR:
     name: Nome
     email: E-mail
     password: Senha
-    password_confirm: Confirmação de Senha
+    password_confirmation: Confirmação da senha
     admin:
       false: usuário
       true: administrador
   users:
     title: Usuários - Áporo Formulários
+  errors:
+    messages:
+      not_saved: "Não foi possível salvar este(a) %{resource} devido a ${count} erros:"

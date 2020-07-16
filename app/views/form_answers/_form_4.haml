@@ -1,0 +1,9 @@
+%section{ form_section(active) }
+  .field
+    = form.label :concorda_acordo_trecho
+    %p= t('forms.labels.form_answer.acordo_trecho')
+    .checkbox-inline
+      - (1..5).map do |i|
+        .inline-option
+          = form.radio_button :concorda_acordo_trecho, i
+          = form.label :"concorda_acordo_trecho_#{i}", i.to_s

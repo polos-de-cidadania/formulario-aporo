@@ -13,6 +13,8 @@ class UsersController < ApplicationController
 
   # GET /users/new
   def new
+    redirect_to users_path unless current_user.admin?
+
     @user = User.new
   end
 
@@ -21,6 +23,8 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
+    return head :forbidden unless current_user.admin?
+
     @user = User.new(user_params)
 
     if @user.save
@@ -54,6 +58,13 @@ class UsersController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    user = params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation)
+
+    if user[:password].blank? && user[:password_confirmation].blank?
+      user = user.except(:password, :password_confirmation)
+    end
+    user.except(:admin) unless current_user.admin?
+
+    user
   end
 end

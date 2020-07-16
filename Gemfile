@@ -22,7 +22,11 @@ gem 'devise', '~> 4.7'
 gem 'font-awesome-sass', '~> 5.13.0'
 gem 'haml'
 gem 'haml-rails'
+gem 'lockbox', '~> 0.4.6'
+gem 'rack-timeout', '~> 0.6.0'
 gem 'rails-i18n', '~> 6.0.0'
+gem "simple_form", "~> 5.0"
+gem "barnes", "~> 0.0.8"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
@@ -37,6 +41,7 @@ group :development do
   gem 'brakeman', require: false
   gem 'bundler-audit', require: false
   gem 'i18n-debug'
+  gem 'letter_opener'
   gem 'rubocop', '~> 0.86.0', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
@@ -46,6 +51,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+end
+
+group :test do
+  gem 'simplecov', require: false
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

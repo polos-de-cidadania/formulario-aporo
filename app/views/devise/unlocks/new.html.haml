@@ -1,10 +1,10 @@
-%h2 Resend unlock instructions
-= form_for(resource, as: resource_name, url: unlock_path(resource_name), html: { method: :post }) do |f|
-  = render "devise/shared/error_messages", resource: resource
-  .field
-    = f.label :email
-    %br/
-    = f.email_field :email, autofocus: true, autocomplete: "email"
-  .actions
-    = f.submit "Resend unlock instructions"
-= render "devise/shared/links"
+.main-container.elevated-high#auth
+  %h2.text-lead.title Re-enviar as instruções de desbloqueio
+  = form_for(resource, as: resource_name, url: unlock_path(resource_name)) do |f|
+    = render "devise/shared/error_messages", resource: resource
+    .field
+      = f.label :email
+      = f.email_field :email, autofocus: true, autocomplete: "email"
+    .actions
+      = f.submit "Re-envie o e-mail de desbloqueio", class: 'primary'
+      = render "devise/shared/links"

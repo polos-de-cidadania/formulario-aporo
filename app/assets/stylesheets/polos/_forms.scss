@@ -51,3 +51,72 @@ textarea {
     border: 1px solid $color-primary;
   }
 }
+
+textarea {
+  resize: vertical;
+  min-height: 2em;
+  overflow-x: hidden;
+}
+
+select {
+  margin-top: $spacing-2;
+  margin-right: $spacing-2;
+  padding: $spacing-1 0 $spacing-1 0;
+  border-radius: $border-radius;
+  border: 1px solid $color-grey;
+}
+
+.checkbox {
+  [type='checkbox'], [type='radio'] {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+  }
+
+  @mixin container {
+    @extend .fas;
+    height: 24px;
+    width: 24px;
+    content: '\00A0';
+    padding: 2px;
+    margin-right: $spacing-0;
+    border: 2px solid $color-grey;
+  }
+
+  [type='checkbox'] + label:before {
+    @include container;
+    border-radius: $border-radius;
+  }
+
+  [type='radio'] + label:before {
+    @include container;
+    border-radius: 100%;
+  }
+
+  [type='checkbox']:checked + label:before {
+    content: "\f00c";
+  }
+
+  [type='radio']:checked + label:before {
+    content: '\f111';
+  }
+
+  label {
+    cursor: pointer;
+    margin-top: $spacing-2;
+    margin-bottom: $spacing-2;
+  }
+}
+
+.field_with_errors {
+  input {
+    border: 1px solid $color-danger;
+  }
+
+  & + span {
+    font-size: small;
+    font-weight: 700;
+  }
+}
