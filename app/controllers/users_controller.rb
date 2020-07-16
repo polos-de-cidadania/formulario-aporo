@@ -2,6 +2,7 @@
 
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
+  before_action :check_admin, only: %i[create destroy]
 
   # GET /users
   def index
@@ -36,7 +37,11 @@ class UsersController < ApplicationController
 
   # PATCH/PUT /users/1
   def update
-    if @user.update(user_params)
+    update_params = user_params
+    if update_params[:password].blank? && update_params[:password_confirmation].blank? &&
+       @user.update_without_password(update_params)
+      redirect_to @user, notice: 'User was successfully updated.'
+    elsif @user.update(update_params)
       redirect_to @user, notice: 'User was successfully updated.'
     else
       render :edit
@@ -51,6 +56,10 @@ class UsersController < ApplicationController
 
   private
 
+  def check_admin
+    head :forbidden unless current_user.admin?
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = User.find(params[:id])
@@ -58,13 +67,9 @@ class UsersController < ApplicationController
 
   # Only allow a trusted parameter "white list" through.
   def user_params
-    user = params.require(:user).permit(:name, :email, :admin, :password, :password_confirmation)
+    permitted_params = %i[name email password password_confirmation]
+    permitted_params << :admin if current_user.admin?
 
-    if user[:password].blank? && user[:password_confirmation].blank?
-      user = user.except(:password, :password_confirmation)
-    end
-    user.except(:admin) unless current_user.admin?
-
-    user
+    params.require(:user).permit(permitted_params)
   end
 end
