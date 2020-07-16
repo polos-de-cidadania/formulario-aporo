@@ -31,8 +31,9 @@ pt-BR:
       form_answer:
         concordo_dados:
           "Eu concordo que li e compreendi que meus dados, fornecidos neste formulário,
-          serão acessados apenas pelos pesquisadores extensionistas do programa Polos de Cidadania."
-        concordo_pesquisa: Eu concordo e compreendo que meus dados serão usados para pesquisa-diagnóstica realizada pelo programa Polos de Cidadania.
+          serão acessados apenas pela equipe científica do POLOS-UFMG."
+        concordo_pesquisa: "Eu concordo e compreendo que meus dados serão usados
+          para pesquisa-diagnóstica publicada pelo POLOS-UFMG, com a proteção do anonimato das informações fornecidas."
         nome: Nome completo
         cpf: CPF
         responsavel_nome: Nome completo do responsável pelo preenchimento (caso haja)
