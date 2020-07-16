@@ -1,6 +1,11 @@
 #form
-  %header.main-container.elevated
-    %h1 Cumprimento de pagamento VALE
+  %header
+    %section.title
+      %img{ src: '/arquivos/banner.png' }
+      %h1
+        Pesquisa sobre cumprimento de Acordo
+        %br
+        Macacos, MG
     = render 'form_intro' if @form_answer.page.zero?
   = simple_form_for @form_answer, url: '/formulario', remote: false,
     data: { controller: 'form-nav' }, html: { autocomplete: 'off' } do |f|

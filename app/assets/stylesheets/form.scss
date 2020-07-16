@@ -3,25 +3,36 @@
   margin-top: $spacing-3;
 
   header {
-    margin-bottom: $spacing-3;
+    section {
+      @extend .main-container;
+      @extend .elevated;
+      display: grid;
+      grid-template-columns: 1fr;
+      grid-auto-flow: row;
+      grid-row-gap: $spacing-2;
+      margin-bottom: $spacing-3;
+
+      &.title {
+        @extend .elevated-high;
+        padding: 0 0 $spacing-3;
+      }
+    }
 
     h1 {
       @extend .text-title;
       text-align: center;
     }
 
-    .full_paragraph {
-      margin-top: $spacing-2;
+    img {
+      // feio, eu sei
+      width: 100%;
+      height: auto;
+      border-radius: $border-radius;
     }
 
-    li {
-      margin: $spacing-1 0 $spacing-1 2ch;
-    }
-
-    .link {
-      text-align: center;
-      text-transform: uppercase;
-      text-decoration: underline $color-grey 2px;
+    ol {
+      list-style: upper-roman;
+      padding-left: 4ch;
     }
 
     details {
@@ -31,8 +42,19 @@
       }
 
       p {
-        margin: $spacing-1 0 $spacing-1 2ch;
+        margin: $spacing-1 0 $spacing-1;
+        padding-left: 4ch;
       }
+    }
+
+    p.indent {
+      text-indent: 4ch;
+    }
+
+    .link_acordo {
+      text-align: center;
+      text-transform: uppercase;
+      text-decoration: underline $color-grey 2px;
     }
 
     .disclaimer {
@@ -89,13 +111,12 @@
         align-items: baseline;
 
 
-        input[type='radio'] + label {
+        label {
           margin: $spacing-1 1ch;
         }
 
         input:not([type='radio']) {
           padding: 0 1ch;
-          margin: $spacing-1 1ch;
           -moz-appearance: textfield;
 
           &[type='number'] {

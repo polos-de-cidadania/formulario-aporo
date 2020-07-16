@@ -55,6 +55,7 @@ textarea {
 textarea {
   resize: vertical;
   min-height: 2em;
+  overflow-x: hidden;
 }
 
 select {
