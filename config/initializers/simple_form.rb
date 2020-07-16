@@ -81,6 +81,13 @@ SimpleForm.setup do |config|
     b.use :error, wrap_with: { tag: :span, class: :error }
   end
 
+  config.wrappers :checkbox_wrapper, class: 'checkbox' do |b|
+    b.use :html5
+    b.optional :readonly
+    b.use :input
+    b.use :label
+  end
+
   config.wrappers :select_wrapper, class: :field,
                                    valid_class: :field_valid,
                                    error_class: :field_with_errors do |b|
@@ -163,7 +170,7 @@ SimpleForm.setup do |config|
 
   # Custom wrappers for input types. This should be a hash containing an input
   # type as key and the wrapper that will be used for all inputs with specified type.
-  config.wrapper_mappings = { select: :select_wrapper }
+  config.wrapper_mappings = { boolean: :checkbox_wrapper, select: :select_wrapper }
 
   # Namespaces where SimpleForm should look for custom input classes that
   # override default inputs.
@@ -188,7 +195,7 @@ SimpleForm.setup do |config|
   # config.input_class = nil
 
   # Define the default class of the input wrapper of the boolean input.
-  config.boolean_label_class = 'checkbox'
+  # config.boolean_label_class = 'checkbox'
 
   # Defines if the default input wrapper class should be included in radio
   # collection wrappers.

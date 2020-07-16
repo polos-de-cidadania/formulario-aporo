@@ -7,7 +7,7 @@ pt-BR:
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Please review the problems below:"
+    #  default_message: "Please review the problems below:"
     # Examples
     # labels:
     #   defaults:
@@ -28,6 +28,8 @@ pt-BR:
     #   defaults:
     #     age: 'Select your age'
     labels:
+      user:
+        admin: Administrador
       form_answer:
         concordo_dados:
           "Eu concordo que li e compreendi que meus dados, fornecidos neste formulário,

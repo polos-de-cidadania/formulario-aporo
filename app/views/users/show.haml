@@ -1,4 +1,4 @@
-.main-container.elevated#user
+#user.single-card
   .summary
     %h2.text-lead= @user.name
     %p
@@ -18,4 +18,3 @@
     = link_to users_path do
       = icon 'fas', 'arrow-left'
     = link_to t("verbs.edit"), edit_user_path(@user), class: 'button primary'
-

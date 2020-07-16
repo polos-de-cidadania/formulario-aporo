@@ -1,4 +1,10 @@
 #user {
+  &.single-card {
+    @extend .main-container;
+    @extend .elevated;
+    max-width: 35ch;
+  }
+
   // #show
   .summary {
     margin-bottom: $spacing-2;
@@ -43,6 +49,7 @@
       text-align: center;
       flex-grow: 1;
     }
+
     a {
       @extend .button;
       @extend .primary;

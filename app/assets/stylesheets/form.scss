@@ -156,11 +156,6 @@
       margin-top: $spacing-0;
     }
 
-    span.error {
-      @extend .text-label;
-      color: $color-danger;
-    }
-
     .actions {
       display: flex;
       flex-direction: row;

@@ -115,8 +115,10 @@ select {
     border: 1px solid $color-danger;
   }
 
-  & + span {
+  span.error {
+    @extend .text-label;
     font-size: small;
-    font-weight: 700;
+    color: $color-danger;
   }
+
 }
