@@ -52,7 +52,8 @@ label {
 input:not([type]),
 textarea {
   width: 100%;
-  padding: $spacing-1 0 $spacing-1 $spacing-1;
+  padding: $spacing-2 $spacing-1;
+  line-height: 1.4;
   overflow-x: scroll;
   border-radius: $border-radius;
   border: 1px solid $color-grey;

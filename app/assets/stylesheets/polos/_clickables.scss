@@ -53,7 +53,8 @@ a {
   text-decoration: none;
 
   &:hover {
-    text-decoration: underline $color-primary-dark 2px;
+    text-decoration: underline $color-primary-dark solid;
+    text-decoration-thickness: 2px;
 
     i {
       color: $color-primary-dark;
