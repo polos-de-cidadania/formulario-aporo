@@ -54,7 +54,8 @@
     .link_acordo {
       text-align: center;
       text-transform: uppercase;
-      text-decoration: underline $color-grey 2px;
+      text-decoration: underline $color-grey solid;
+      text-decoration-thickness: 2px;
     }
 
     .disclaimer {
