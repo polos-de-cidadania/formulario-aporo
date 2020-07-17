@@ -11,11 +11,13 @@ class FormAnswersController < ApplicationController
   # POST /formulario
   def create
     if @form_answer.save
-      redirect_to @form_answer, notice: 'Formulário enviado com sucesso!'
+      redirect_to :formulario_fim
     else
       render :new
     end
   end
+
+  def end; end
 
   private
 

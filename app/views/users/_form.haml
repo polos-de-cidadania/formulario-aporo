@@ -1,24 +1,10 @@
-= form_for @user do |f|
-  .field
-    = f.label :name
-    = f.text_field :name
-  .field
-    = f.label :email
-    = f.text_field :email
+= simple_form_for @user do |f|
+  = f.input :name, autocomplete: "full-name"
+  = f.input :email, autocomplete: "new-password"
   - if current_user.admin?
-    .field-checkbox
-      = f.check_box :admin
-      = f.label :admin
-  .field
-    = f.label :password
-    = f.text_field :password
-    - @user.errors.full_messages_for(:password).each do |error|
-      %span= error
-  .field
-    = f.label :password_confirmation
-    = f.text_field :password_confirmation, autocomplete: "new-password"
-    - @user.errors.full_messages_for(:password_confirmation).each do |error|
-      %span= error
+    = f.input :admin
+  = f.input :password, autocomplete: "new-password"
+  = f.input :password_confirmation, autocomplete: "new-password"
   .actions
     = link_to users_path do
       = icon 'fas', 'arrow-left'

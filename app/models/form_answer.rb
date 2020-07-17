@@ -64,7 +64,7 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
               :endereco_rua, :endereco_numero, :endereco_cep, :endereco_bairro, :endereco_cidade,
               presence: true
     validates :cpf, :responsavel_cpf,
-              format: { with: /\A\d{3}.\d{3}.\d{3}-\d{2}\z/, allow_blank: true }
+              length: { is: 11, allow_blank: true }
     validates :cpf,
               presence: true, if: -> { page >= 1 && responsavel_cpf.blank? }
     validates :responsavel_cpf,
@@ -74,9 +74,9 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
     validates :raca,
               inclusion: { in: %w[branco preto pardo indigena asiatico outro nao_declarado] }
     validates :telefone,
-              format: { with: /\A\(\d{2}\) 9?\d{4}-\d{4}\z/, allow_blank: true }
+              format: { with: /\A\d{2}9?\d{8}\z/, allow_blank: true }
     validates :endereco_cep,
-              format: { with: /\A\d{5}-\d{3}\z/ }
+              length: { is: 8 }
   end
 
   with_options if: -> { page >= 2 } do
@@ -134,7 +134,7 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
 
   with_options if: -> { page >= 5 } do
     validates :covid_grupo_risco,
-              inclusion: { in: %w[idosos gestantes cronicos] }
+              inclusion: { in: %w[idosos gestantes cronicos], allow_blank: true }
     validates :covid_sintomas,
               inclusion: { in: [true, false] }
     validates :covid_atencao_medica,

@@ -1,14 +1,14 @@
 %section{form_section(active)}
 	= form.input :nome
-	= form.input :cpf, placeholder: 'XXX.XXX.XXX-XX'
+	= form.input :cpf, hint: true
 	= form.input :responsavel_nome
-	= form.input :responsavel_cpf, placeholder: 'XXX.XXX.XXX-XX'
+	= form.input :responsavel_cpf, hint: true
 	= form.input :genero, as: :radio_buttons, collection: %i[masculino feminino outro nao_declarado]
 	= form.input :raca, as: :radio_buttons, collection: %i[branco preto pardo indigena asiatico outro nao_declarado]
-	= form.input :telefone, placeholder: '(XX) xXXXX-XXXX'
+	= form.input :telefone, hint: true, placeholder: true
 	= form.input :endereco_rua
 	= form.input :endereco_numero
 	= form.input :endereco_complemento
-	= form.input :endereco_cep, placeholder: 'XXXXX-XXX'
+	= form.input :endereco_cep, hint: true
 	= form.input :endereco_bairro
 	= form.input :endereco_cidade

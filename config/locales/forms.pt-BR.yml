@@ -7,7 +7,7 @@ pt-BR:
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Please review the problems below:"
+    #  default_message: "Please review the problems below:"
     # Examples
     # labels:
     #   defaults:
@@ -17,10 +17,15 @@ pt-BR:
     #       email: 'E-mail to sign in.'
     #     edit:
     #       email: 'E-mail.'
-    # hints:
-    #   defaults:
-    #     username: 'User name to sign in.'
-    #     password: 'No special characters, please.'
+    hints:
+      form_answer:
+        cpf: apenas números
+        responsavel_cpf: apenas números
+        telefone: apenas números (com DDD)
+        endereco_cep: apenas números
+    placeholders:
+      form_answer:
+        telefone: 31123456789
     # include_blanks:
     #   defaults:
     #     age: 'Rather not say'
@@ -28,6 +33,8 @@ pt-BR:
     #   defaults:
     #     age: 'Select your age'
     labels:
+      user:
+        admin: Administrador
       form_answer:
         concordo_dados:
           "Eu concordo que li e compreendi que meus dados, fornecidos neste formulário,
