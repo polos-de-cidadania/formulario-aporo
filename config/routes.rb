@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   get '/formulario', to: 'form_answers#new'
   post '/formulario', to: 'form_answers#create'
+  get '/formulario/fim', to: 'form_answers#end'
 
   devise_for :users
   authenticated :user do

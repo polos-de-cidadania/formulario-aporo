@@ -9,11 +9,9 @@
 #
 # Use this setup block to configure all options available in SimpleForm.
 SimpleForm.setup do |config|
-
   config.wrappers :default, class: :field,
                             valid_class: :field_valid,
                             error_class: :field_with_errors do |b|
-
     # Validations and formats
     b.use :html5
     b.use :maxlength

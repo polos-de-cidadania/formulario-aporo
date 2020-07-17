@@ -1,5 +1,5 @@
 %section{ form_section(active) }
-  %fieldset{ data: { controller: 'dependant-field' }}
+  %fieldset{ data: { controller: 'dependant-field', 'dependant-field-enable-value-not': 0 }}
     .field-composite{ data: { controller: 'composite-field' }}
       = form.label :denuncia_telefone_numero, t('forms.labels.form_answer.denuncia_telefone')
       .checkbox.composite
@@ -12,7 +12,7 @@
     = form.input :denuncia_telefone_resposta, wrapper: :dependant, label: t('forms.labels.form_answer.denuncia_resposta'),
       collection: t('forms.options.form_answer.denuncia_resposta').invert, data: { target: 'dependent-field.depends' }
     = form.input :denuncia_telefone_comentario, wrapper: :dependant, data: { target: 'dependent-field.depends' }
-  %fieldset{ data: { controller: 'dependant-field' }}
+  %fieldset{ data: { controller: 'dependant-field', 'dependant-field-enable-value-not': 0 }}
     .field-composite{ data: { controller: 'composite-field' }}
       = form.label :denuncia_presencial_numero, t('forms.labels.form_answer.denuncia_presencial')
       .checkbox.composite
@@ -25,7 +25,7 @@
     = form.input :denuncia_presencial_resposta, wrapper: :dependant, label: t('forms.labels.form_answer.denuncia_resposta'),
       collection: t('forms.options.form_answer.denuncia_resposta').invert, data: { target: 'dependent-field.depends' }
     = form.input :denuncia_presencial_comentario, wrapper: :dependant
-  %fieldset{ data: { controller: 'dependant-field' }}
+  %fieldset{ data: { controller: 'dependant-field', 'dependant-field-enable-value-not': 0 }}
     .field-composite{ data: { controller: 'composite-field' }}
       = form.label :denuncia_mpe_numero, t('forms.labels.form_answer.denuncia_mpe')
       .checkbox.composite
@@ -38,7 +38,7 @@
     = form.input :denuncia_mpe_resposta, wrapper: :dependant, label: t('forms.labels.form_answer.denuncia_resposta'),
       collection: t('forms.options.form_answer.denuncia_resposta').invert, data: { target: 'dependent-field.depends' }
     = form.input :denuncia_mpe_comentario, wrapper: :dependant
-  %fieldset{ data: { controller: 'dependant-field' }}
+  %fieldset{ data: { controller: 'dependant-field', 'dependant-field-enable-value-not': 0 }}
     .field-composite{ data: { controller: 'composite-field' }}
       = form.label :denuncia_dp_numero, t('forms.labels.form_answer.denuncia_dp')
       .checkbox.composite

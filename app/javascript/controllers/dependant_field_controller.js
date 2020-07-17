@@ -11,21 +11,14 @@ export default class extends Controller {
     }
 
     updateDependants = (depended) => {
-        let enabled = false
+        let enabled = (this.data.get('enabled')) || false
 
-        if (depended.type === 'radio') {
-            if (depended.checked) {
-                if (this.data.has('enableValue'))
-                    enabled = depended.value === this.data.get('enableValue')
-                else if (this.data.has('enableValueNot'))
-                    enabled = depended.value !== this.data.get('enableValueNot')
-            }
-        } else if (this.data.has('enableValue'))
-            enabled = depended.value === this.data.get('enableValue')
-        else if (this.data.has('enableValueNot'))
-            enabled = depended.value !== this.data.get('enableValueNot')
-        else
-            enabled = parseInt(depended.value) > 0
+        if (depended.type !== 'radio' || depended.checked) {
+            if (this.data.has('enableValue'))
+                enabled = (depended.value === this.data.get('enableValue'))
+            else if (this.data.has('enableValueNot'))
+                enabled = (depended.value !== this.data.get('enableValueNot'))
+        }
 
         this.data.set('enabled', enabled)
         if (enabled) return

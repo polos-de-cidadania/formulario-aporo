@@ -134,7 +134,7 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
 
   with_options if: -> { page >= 5 } do
     validates :covid_grupo_risco,
-              inclusion: { in: %w[idosos gestantes cronicos] }
+              inclusion: { in: %w[idosos gestantes cronicos], allow_blank: true }
     validates :covid_sintomas,
               inclusion: { in: [true, false] }
     validates :covid_atencao_medica,
