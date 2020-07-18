@@ -137,10 +137,13 @@ pt-BR:
           "regular": Regular
           "bom": Bom
           "otimo": Ótimo
-        covid_grupo_risco:
+        covid_grupo_risco_oms:
           idosos: Idosos
-          gestantes: Gestantes
-          cronicos: Doeças Crônicas
+          diabeticos: Diabéticos
+          hipertensos: Hipertensos
+          insuficiencia_renal: Insuficiência renal crônica
+          doenca_respiratoria: Doença respiratória crônica
+          doenca_cardiovascular: Doença cardiovascular
         covid_sintomas:
           "true": Sim
           "false": Não
