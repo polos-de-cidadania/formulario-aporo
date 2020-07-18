@@ -1,5 +1,17 @@
 %section{ form_section(active) }
-  = form.input :covid_grupo_risco, as: :radio_buttons, collection: %i[idosos gestantes cronicos]
+  = @form_answer.errors.inspect
+  .field.field-composite{ data: { controller: 'composite-field' }}
+    = form.label :covid_grupo_risco, t('forms.labels.form_answer.covid_grupo_risco')
+    .checkbox.composite
+      = form.radio_button :covid_grupo_risco, '', data: { target: 'composite-field.input' }
+      = form.label :"covid_grupo_risco_", 'Não'
+    - t('forms.options.form_answer.covid_grupo_risco_oms').map do |key, value|
+      .checkbox.composite
+        = form.radio_button :covid_grupo_risco, key, data: { target: 'composite-field.input' }
+        = form.label :"covid_grupo_risco_#{key}", value
+    .composite
+      = form.label :covid_grupo_risco, "Outro:"
+      = form.number_field :covid_grupo_risco, data: { target: 'composite-field.input' }
   %fieldset{ data: { controller: 'dependant-field', 'dependant-field-enable-value': 'true' }}
     = form.input :covid_sintomas, as: :radio_buttons, collection: %i[true false],
       input_html: { data: { target: 'dependant-field.depended' }}
