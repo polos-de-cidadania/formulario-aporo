@@ -1,0 +1,13 @@
+pt-BR:
+  devise:
+    mailer:
+      confirmation_instructions:
+        subject: Confirmação de nova conta
+      reset_password_instructions:
+        subject: Requisição de nova senha
+      email_change:
+        subject: Confirmação de mudança de e-mail
+      password_change:
+        subject: Confirmação de mudança de senha
+      unlock_instructions:
+        subject: Instruções para desbloqueio de conta
