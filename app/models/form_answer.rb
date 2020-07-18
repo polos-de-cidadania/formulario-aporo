@@ -4,6 +4,7 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
   attr_accessor :page
 
   before_validation :set_form_page
+  before_validation :coerce_nil_strings
   after_validation :update_form_page
   validate :last_form_page
 
@@ -64,7 +65,7 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
               :endereco_rua, :endereco_numero, :endereco_cep, :endereco_bairro, :endereco_cidade,
               presence: true
     validates :cpf, :responsavel_cpf,
-              length: { is: 11, allow_blank: true }
+              length: { is: 11, allow_nil: true }
     validates :cpf,
               presence: true, if: -> { page >= 1 && responsavel_cpf.blank? }
     validates :responsavel_cpf,
@@ -74,7 +75,7 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
     validates :raca,
               inclusion: { in: %w[branco preto pardo indigena asiatico outro nao_declarado] }
     validates :telefone,
-              format: { with: /\A\d{2}9?\d{8}\z/, allow_blank: true }
+              format: { with: /\A\d{2}9?\d{8}\z/, allow_nil: true }
     validates :endereco_cep,
               length: { is: 8 }
   end
@@ -95,13 +96,6 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
               if: -> { page >= 2 && cadastro_digital == 'sim' }
     validates :pagamento_realizado,
               inclusion: { in: [true, false] }
-
-    before_validation do
-      next if cadastro_digital == 'sim'
-
-      self.cadastro_dias  = nil
-      self.cadastro_tempo = nil
-    end
   end
 
   with_options if: -> { page >= 3 } do
@@ -122,7 +116,7 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
     validates :denuncia_dp_resposta,
               presence: true, if: -> { page >= 3 && denuncia_dp_numero&.positive? }
     validates :denuncia_telefone_resposta, :denuncia_presencial_resposta, :denuncia_mpe_resposta, :denuncia_dp_resposta,
-              inclusion: { in: %w[nao insatisfatorio regular bom otimo], allow_blank: true }
+              inclusion: { in: %w[nao insatisfatorio regular bom otimo], allow_nil: true }
   end
 
   with_options if: -> { page >= 4 } do
@@ -133,13 +127,11 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
   end
 
   with_options if: -> { page >= 5 } do
-    validates :covid_grupo_risco,
-              inclusion: { in: %w[idosos gestantes cronicos], allow_blank: true }
     validates :covid_sintomas,
               inclusion: { in: [true, false] }
     validates :covid_atencao_medica,
               presence: true,
-              if: -> { page >= 5 && covid_sintomas? }
+              if: -> { page >= 5 && covid_sintomas == true }
     validates :covid_testado,
               inclusion: { in: %w[nao rede_publica rede_privada] }
     validates :covid_resultado,
@@ -149,9 +141,18 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
 
   private
 
+  def coerce_nil_strings
+    attributes.each do |attr_name, value|
+      next if attr_name.include?('_ciphertext')
+      next unless value.is_a? String
+
+      send("#{attr_name}=", nil) if value.blank?
+    end
+  end
+
   def set_form_page
     self.page = page.to_i
-    self.page = 0 unless page.between? 0, 5
+    self.page = 5 unless page.between? 0, 5
   end
 
   def update_form_page
