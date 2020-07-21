@@ -1,5 +1,5 @@
 #form {
-  max-width: 60ch;
+  max-width: 65ch;
   margin-top: $spacing-3;
 
   header {
@@ -150,6 +150,18 @@
 
       &.collection_radio_buttons {
         font-size: $font-size-base;
+      }
+    }
+
+    blockquote {
+      line-height: 1.2;
+      padding-left: 4ch;
+      margin: $spacing-1 auto;
+
+      &:before, &:after {
+        content: '"';
+        font-weight: 600;
+        font-size: 1.2em;
       }
     }
 

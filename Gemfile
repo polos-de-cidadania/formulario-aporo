@@ -26,6 +26,7 @@ gem 'haml-rails'
 gem 'lockbox', '~> 0.4.6'
 gem 'rack-timeout', '~> 0.6.0'
 gem 'rails-i18n', '~> 6.0.0'
+gem 'sentry-raven', '~> 3.0'
 gem 'simple_form', '~> 5.0'
 
 # Reduces boot times through caching; required in config/boot.rb
