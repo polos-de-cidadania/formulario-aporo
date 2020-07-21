@@ -31,6 +31,18 @@ pidfile ENV.fetch('PIDFILE', 'tmp/pids/server.pid')
 #
 workers ENV.fetch('WEB_CONCURRENCY', 2)
 
+# Low-level error reporting for Sentry.io
+lowlevel_error_handler do |ex, env|
+  Raven.capture_exception(
+    ex,
+    message: ex.message,
+    extra: { puma: env },
+    transaction: 'Puma'
+  )
+  # Rack response
+  [500, {}, ["Algo deu errado no nosso servidor, nos desculpe pela inconveniência.\n"]]
+end
+
 # Use the `preload_app!` method when specifying a `workers` number.
 # This directive tells Puma to first boot the application and load code
 # before forking the application. This takes advantage of Copy On Write
