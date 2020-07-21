@@ -84,6 +84,8 @@ GEM
     docile (1.3.2)
     erubi (1.9.0)
     erubis (2.7.0)
+    faraday (1.0.1)
+      multipart-post (>= 1.2, < 3)
     ffi (1.13.1)
     font-awesome-sass (5.13.0)
       sassc (>= 1.11)
@@ -129,6 +131,7 @@ GEM
     minitest (5.14.1)
     msgpack (1.3.3)
     multi_json (1.15.0)
+    multipart-post (2.1.1)
     nio4r (2.5.2)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
@@ -232,6 +235,8 @@ GEM
       sprockets (> 3.0)
       sprockets-rails
       tilt
+    sentry-raven (3.0.0)
+      faraday (>= 1.0)
     sexp_processor (4.15.0)
     simple_form (5.0.2)
       actionpack (>= 5.0)
@@ -305,6 +310,7 @@ DEPENDENCIES
   rubocop-rails
   rubocop-rspec
   sass-rails (>= 6)
+  sentry-raven (~> 3.0)
   simple_form (~> 5.0)
   simplecov
   spring
