@@ -5,8 +5,8 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
 
   before_validation :set_form_page
   before_validation :coerce_nil_strings
-  after_validation :update_form_page
   validate :last_form_page
+  after_validation :update_form_page
 
   attribute :concordo_dados, :boolean
   attribute :concordo_pesquisa, :boolean
@@ -47,7 +47,7 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
   encrypts :denuncia_dp_comentario
   encrypts :denuncia_outros
 
-  encrypts :concorda_acordo_trecho, type: :integer
+  encrypts :concorda_acordo_trecho, type: :boolean
 
   encrypts :covid_grupo_risco
   encrypts :covid_sintomas, type: :boolean
@@ -121,9 +121,7 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
 
   with_options if: -> { page >= 4 } do
     validates :concorda_acordo_trecho,
-              numericality: { only_integer: true,
-                              less_than_or_equal_to: 5,
-                              greater_than_or_equal_to: 1 }
+              inclusion: { in: [true, false] }
   end
 
   with_options if: -> { page >= 5 } do
@@ -146,7 +144,7 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
       next if attr_name.include?('_ciphertext')
       next unless value.is_a? String
 
-      send("#{attr_name}=", nil) if value.blank?
+      send(:"#{attr_name}=", nil) if value.blank?
     end
   end
 
