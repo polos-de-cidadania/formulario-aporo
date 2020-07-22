@@ -49,7 +49,7 @@ class FormAnswer < ApplicationRecord # rubocop:disable Metrics/ClassLength
 
   encrypts :concorda_acordo_trecho, type: :boolean
 
-  encrypts :covid_grupo_risco
+  encrypts :covid_grupo_risco, type: :array
   encrypts :covid_sintomas, type: :boolean
   encrypts :covid_atencao_medica
   encrypts :covid_testado
