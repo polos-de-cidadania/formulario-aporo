@@ -61,12 +61,12 @@ class FormAnswersController < ApplicationController
                   :denuncia_dp_comentario,
                   :denuncia_outros,
                   :concorda_acordo_trecho,
-                  :covid_grupo_risco,
                   :covid_sintomas,
                   :covid_atencao_medica,
                   :covid_testado,
                   :covid_resultado,
-                  :duvidas_reclamacoes_sugestoes)
+                  :duvidas_reclamacoes_sugestoes,
+                  covid_grupo_risco: [])
   end
 
   def set_form
