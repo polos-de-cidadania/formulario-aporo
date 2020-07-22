@@ -1,16 +1,14 @@
 %section{ form_section(active) }
-  .field.field-composite{ data: { controller: 'composite-field' }}
+  .field.field-composite
     = form.label :covid_grupo_risco, t('forms.labels.form_answer.covid_grupo_risco')
-    .checkbox.composite
-      = form.radio_button :covid_grupo_risco, '', data: { target: 'composite-field.input' }
-      = form.label :"covid_grupo_risco_", 'Não'
-    - t('forms.options.form_answer.covid_grupo_risco_oms').map do |key, value|
-      .checkbox.composite
-        = form.radio_button :covid_grupo_risco, key, data: { target: 'composite-field.input' }
-        = form.label :"covid_grupo_risco_#{key}", value
-    .composite
-      = form.label :covid_grupo_risco, "Outro:"
-      = form.number_field :covid_grupo_risco, data: { target: 'composite-field.input' }
+    %span.hint Selecione todos que se apliquem
+    .checkbox
+      - t('forms.options.form_answer.covid_grupo_risco_oms').map do |key, label|
+        %input{ type: "checkbox", name: 'form_answer[covid_grupo_risco][]', value: key,
+          id: "form_answer_covid_grupo_risco_#{key}" }
+        %label{ for: "form_answer_covid_grupo_risco_#{key}" }=label
+    %label{ for: 'form_answer_covid_grupo_risco_outro' } Outro:
+    %input{ type: 'text', name: 'form_answer[covid_grupo_risco][]', id: 'form_answer_covid_grupo_risco_outro' }
   %fieldset{ data: { controller: 'dependant-field', 'dependant-field-enable-value': 'true' }}
     = form.input :covid_sintomas, as: :radio_buttons, collection: %i[true false],
       input_html: { data: { target: 'dependant-field.depended' }}
