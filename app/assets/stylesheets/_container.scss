@@ -9,8 +9,8 @@
 }
 
 .gallery {
-  // https://sass-lang.com/documentation/syntax/special-functions#min-and-max
-  min-width: unquote("min(calc(100vw - #{$spacing-2}), 75rem)");
+  min-width: clamp(100vw, 100vw, 75ch);
+  padding: 0 $spacing-2;
   display: grid;
   grid-gap: $spacing-2;
 }
