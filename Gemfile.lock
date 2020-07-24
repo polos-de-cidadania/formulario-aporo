@@ -281,6 +281,7 @@ GEM
     websocket-driver (0.7.3)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
+    yui-compressor (0.12.0)
     zeitwerk (2.4.0)
 
 PLATFORMS
@@ -319,6 +320,7 @@ DEPENDENCIES
   tzinfo-data
   web-console (>= 3.3.0)
   webpacker (~> 4.0)
+  yui-compressor (~> 0.12.0)
 
 RUBY VERSION
    ruby 2.6.6p146

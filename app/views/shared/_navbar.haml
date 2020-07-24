@@ -1,5 +1,8 @@
 %header#navbar{ data: { controller: 'navbar' }}
-  = image_tag "aporo-icon.png"
+  %picture
+    %source{ type: 'image/webp', srcset: image_path("aporo-icon.webp") }
+    %source{ type: 'image/png', srcset: image_path("aporo-icon.png") }
+    %img{ src: image_path("aporo-icon.png"), alt: 'Ícone da Plataforma Áporo' }
   %h1 Plataforma Áporo
   - if user_signed_in?
     %button{ data: { target: 'navbar.button', action: 'navbar#toggle' } }

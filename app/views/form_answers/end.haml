@@ -1,7 +1,10 @@
 #form.end
   %header
     %section.title
-      %img{ src: '/arquivos/banner.png' }
+      %picture
+        %source{ type: 'image/webp', srcset: image_path('banner.webp') }
+        %source{ type: 'image/png',srcset: image_path('banner.png') }
+        %img{ src: image_path('banner.png'), alt: 'Banner da Plataforma Áporo' }
       %h1
         Pesquisa sobre cumprimento de Acordo
         %br
