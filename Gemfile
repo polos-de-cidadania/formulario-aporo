@@ -28,6 +28,7 @@ gem 'rack-timeout', '~> 0.6.0'
 gem 'rails-i18n', '~> 6.0.0'
 gem 'sentry-raven', '~> 3.0'
 gem 'simple_form', '~> 5.0'
+gem "skylight", "~> 4.3"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.2', require: false
