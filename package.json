@@ -10,6 +10,7 @@
   },
   "version": "0.1.0",
   "devDependencies": {
+    "secure-spreadsheet": "^0.1.1",
     "webpack-dev-server": "^3.11.0"
   }
 }
