@@ -44,7 +44,7 @@ group :development do
   gem 'bundler-audit', require: false
   gem 'i18n-debug'
   gem 'letter_opener'
-  gem 'rubocop', '~> 0.86.0', require: false
+  gem 'rubocop', '~> 0.89.0', require: false
   gem 'rubocop-rails', require: false
   gem 'rubocop-rspec', require: false
   # Access an interactive console on exception pages or by calling 'console' anywhere in the code.
