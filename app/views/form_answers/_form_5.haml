@@ -26,3 +26,8 @@
       input_html: { data: { target: 'dependant-field.depended' }}
     = form.input :covid_resultado, as: :radio_buttons, wrapper: :dependant, collection: %i[positivo negativo inconclusivo nao_deseja],
       input_html: { data: { target: 'dependant-field.depends' }}
+  %fieldset
+    = form.input :duvidas_reclamacoes_sugestoes, as: :text
+    %p
+      Você também pode enviar um email para
+      %a{ href: "mailto:formulario.aporo@polosdecidadania.com.br" } formulario.aporo@polosdecidadania.com.br
