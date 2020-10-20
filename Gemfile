@@ -20,7 +20,7 @@ gem 'turbolinks', '~> 5'
 
 gem 'barnes', '~> 0.0.8'
 gem 'devise', '~> 4.7'
-gem 'font-awesome-sass', '~> 5.13.0'
+gem 'font-awesome-sass', '~> 5.15.1'
 gem 'haml'
 gem 'haml-rails'
 gem 'lockbox', '~> 0.4.9'
